@@ -1,4 +1,7 @@
-SRC = srcs/so_long.c 
+SRC = srcs/so_long.c \
+		srcs/ft_parsing_maps.c\
+		srcs/get_next_line.c\
+		srcs/get_next_line_utils.c
 MLX = ./mlx
 IFLAGS = -I includes/
 CFLAGS = -Wall -Wextra -Werror

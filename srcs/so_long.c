@@ -6,39 +6,38 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:23 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/17 16:27:10 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/17 18:37:53 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <mlx.h>
+#include "mega_struct.h"
 
-typedef struct	s_vars {
-	void	*mlx;
-	void	*win;
-}				t_vars;
 
-int	key_hook(int keycode, t_vars *vars)
+int	main(int ac, char **av)
 {
-	(void)vars;
+	t_conf	conf;
+	(void)ac;
 
-	printf("Hello from key_hook! keycode = %d\n",keycode);
-	return(0);
-}
+	conf.maps = ft_parsing_maps(av[1]);
+	printf("%s",conf.maps[0]);
+	printf("%s",conf.maps[1]);
+	printf("%s",conf.maps[2]);
+	printf("%s",conf.maps[3]);
 
-int ft_close(int keycode, t_vars *vars)
-{
-	if(keycode == 49)
-		mlx_destroy_window(vars->mlx, vars->win);
-	return (0);
-}
 
-int	main(void)
-{
-	t_vars	vars;
 
-	vars.mlx = mlx_init();
+	if (!conf.maps)
+		exit(0);
+	conf.mlx = mlx_init();
+	/*
 	vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
+	img1 = mlx_xpm_file_to_image(vars.mlx, relative_path1, &img_width, &img_height);
+	img2 = mlx_xpm_file_to_image(vars.mlx, relative_path2, &img_width, &img_height);
+	mlx_put_image_to_window(vars.mlx, vars.win, img1, 0, 0);
+	mlx_put_image_to_window(vars.mlx, vars.win, img2, 10, 0);
 	mlx_hook(vars.win, 2, 1L<<0, ft_close, &vars);
 	mlx_loop(vars.mlx);
+	*/
 }
