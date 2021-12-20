@@ -18,16 +18,20 @@ typedef struct s_hero
 {
 	t_img sprite1;
 	t_img sprite2;
+	char *path1;
+	char *path2;
 	t_coord position;
 	int items;
 	int pv;
 } t_hero;
 
-typedef struct s_badbuy
+typedef struct s_badguy
 {
 	t_img sprite1;
 	t_img sprite2;
-	char *path;
+	char *path1;
+	char *path2;
+	char *move;
 	t_coord position;
 } t_badguy;
 
@@ -38,6 +42,8 @@ typedef struct s_exit
 
 typedef struct s_items
 {
+	char *path;
+	t_img sprites;
 	t_coord coord;
 } t_items;
 
@@ -46,7 +52,7 @@ typedef struct s_conf
 	char **maps;
 	t_coord wsize;
 	t_hero hero;
-	t_badguy badbuy;
+	t_badguy badguy;
 	t_items items1;
 	t_items items2;
 	t_items items3;

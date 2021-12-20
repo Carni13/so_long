@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:23 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/20 16:57:24 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/20 18:22:00 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,23 @@
 #include <mlx.h>
 #include "mega_struct.h"
 
-
+void ft_init_conf(t_conf *conf)
+{
+	conf->maps = NULL;
+	conf->hero.path1 = "./sprites/link_p1.xpm";
+	conf->hero.path2 = "./sprites/link_p2.xpm";
+	conf->badguy.path1 = "./sprites/link_p1.xpm";
+	conf->badguy.path2 = "./sprites/link_p2.xpm";
+	conf->badguy.move = NULL;
+	conf->items1.path = "./sprites/items.xpm";
+	conf->wall = "./sprites/wall2.xpm";
+	conf->grass = "./sprites/grass.xpm";
+}
 int	main(int ac, char **av)
 {
 	t_conf	conf;
 	(void)ac;
-
+	ft_init_conf(&conf);
 	conf.maps = ft_parsing_maps(av[1], &conf);
 	if (!conf.maps)
 		exit(0);
