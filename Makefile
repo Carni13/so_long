@@ -1,7 +1,6 @@
 SRC = srcs/so_long.c \
 		srcs/ft_parsing_maps.c\
-		srcs/get_next_line.c\
-		srcs/get_next_line_utils.c
+		srcs/window.c
 MLX = ./mlx
 IFLAGS = -I includes/
 CFLAGS = -Wall -Wextra -Werror
@@ -9,16 +8,19 @@ CC = gcc
 OBJ = $(SRC:.c=.o)
 HEADER = includes/so_long.h
 LIBMLX = libmlx.a
+LIBFT = ./libft
 NAME = so_long
 
 all: $(NAME)
 
 bonus: $(NAME)
 
-$(NAME): $(OBJ) ${HEADER} ${MLX}
+$(NAME): $(OBJ) ${HEADER} ${MLX} ${LIBFT}
 		@make -C ${MLX}
+		@make -C ${LIBFT}
 		@cp mlx/libmlx.a  ./${LIBMLX}
-		$(CC) ${OBJ} -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+		@cp libft/libft.a  ./libft.a
+		$(CC) ${OBJ} -Lmlx -lmlx -Llibft -lft -framework OpenGL -framework AppKit -o $(NAME)
 
 
 %.o:%.c

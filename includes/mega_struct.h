@@ -5,7 +5,6 @@ typedef struct s_coord
 {
 	int x;
 	int y;
-
 } t_coord;
 
 typedef struct s_img
@@ -45,12 +44,17 @@ typedef struct s_items
 typedef struct s_conf
 {
 	char **maps;
+	t_coord wsize;
 	t_hero hero;
 	t_badguy badbuy;
 	t_items items1;
 	t_items items2;
 	t_items items3;
 	t_exit exit;
+	char *wall;
+	t_img iwall;
+	char *grass;
+	t_img igrass;
 	void *mlx;
 	void *win;
 } t_conf;

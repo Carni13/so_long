@@ -2,21 +2,22 @@
 #include "mega_struct.h"
 #include <fcntl.h>
 
-char **ft_parsing_maps(char *files)
+char **ft_parsing_maps(char *files,t_conf *conf)
 {
 	int fd;
-	int i;
-	i = 0;
-	char **ret_maps;
+	int r;
+	char buffer[BUFFER_SIZE];
 	fd = open(files, 0);
-	ret_maps = malloc(sizeof(char *) * (4));
-
-	while(ret_maps != NULL && i < 4)
-	{
-		ret_maps[i] = get_next_line(fd);
-		i++;
-	}
-	return(ret_maps);
+	r = read(fd,buffer,BUFFER_SIZE);
+	buffer[r] = '\0';
+	conf->maps = ft_split(buffer, '\n');
+	conf->wsize.y = 0;
+	conf->wsize.x = 0;
+	conf->wsize.x = ft_strlen(conf->maps[conf->wsize.y]);
+	while(conf->maps[conf->wsize.y])
+		conf->wsize.y++;
+	close(fd);
+	return(conf->maps);
 }
 
 

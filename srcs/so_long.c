@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:23 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/17 18:37:53 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/20 16:57:24 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,13 @@ int	main(int ac, char **av)
 	t_conf	conf;
 	(void)ac;
 
-	conf.maps = ft_parsing_maps(av[1]);
-	printf("%s",conf.maps[0]);
-	printf("%s",conf.maps[1]);
-	printf("%s",conf.maps[2]);
-	printf("%s",conf.maps[3]);
-
-
-
+	conf.maps = ft_parsing_maps(av[1], &conf);
 	if (!conf.maps)
 		exit(0);
 	conf.mlx = mlx_init();
+	ft_init_window(&conf);
+	mlx_loop(conf.mlx);
+
 	/*
 	vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
 	img1 = mlx_xpm_file_to_image(vars.mlx, relative_path1, &img_width, &img_height);
