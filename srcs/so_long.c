@@ -23,7 +23,7 @@ void ft_init_conf(t_conf *conf)
 	conf->badguy.path2 = "./sprites/link_p2.xpm";
 	conf->badguy.move = NULL;
 	conf->items1.path = "./sprites/items.xpm";
-	conf->wall = "./sprites/wall2.xpm";
+	conf->wall = "./sprites/wall.xpm";
 	conf->grass = "./sprites/grass.xpm";
 }
 int	main(int ac, char **av)
