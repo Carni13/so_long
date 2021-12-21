@@ -16,11 +16,15 @@ typedef struct s_img
 
 typedef struct s_hero
 {
-	t_img sprite1;
-	t_img sprite2;
-	char *path1;
-	char *path2;
-	t_coord position;
+	int i;
+	int j;
+	int h;
+	int w;
+	void *wait;
+	void *front[10];
+	void *back[10];
+	void *left[10];
+	void *right[10];
 	int items;
 	int pv;
 } t_hero;
@@ -63,6 +67,8 @@ typedef struct s_conf
 	t_img igrass;
 	void *mlx;
 	void *win;
+	int timer;
+	int second;	
 } t_conf;
 
 #endif

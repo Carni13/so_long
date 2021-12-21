@@ -11,14 +11,7 @@ int ft_open_sprites(t_conf *conf)
 }
 
 int ft_open_perso(t_conf *conf)
-{
-
-	//heros
-	conf->hero.sprite1.img= mlx_xpm_file_to_image(conf->mlx, conf->hero.path1, 
-	&(conf->hero.sprite1.img_widht), &(conf->hero.sprite1.img_height));
-	conf->hero.sprite2.img= mlx_xpm_file_to_image(conf->mlx, conf->hero.path2, 
-	&(conf->hero.sprite2.img_widht), &(conf->hero.sprite2.img_height));	
-	//bad buy
+{	
 	conf->badguy.sprite1.img= mlx_xpm_file_to_image(conf->mlx, conf->badguy.path1, 
 	&(conf->badguy.sprite1.img_widht), &(conf->badguy.sprite1.img_height));
 	conf->badguy.sprite2.img= mlx_xpm_file_to_image(conf->mlx, conf->badguy.path2, 
@@ -74,7 +67,11 @@ void ft_print_game(t_conf *conf)
 		while(conf->wsize.x > i)
 		{
 			if(conf->maps[j][i]== 'p')
-				mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.sprite1.img, i_size, j_size);
+			{
+				mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.wait, i_size, j_size);
+				conf->hero.i = i;
+				conf->hero.j = j;
+			}
 			if (conf->maps[j][i] == 'i')
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->items1.sprites.img, i_size, j_size);
 			if (conf->maps[j][i] == 'b')
