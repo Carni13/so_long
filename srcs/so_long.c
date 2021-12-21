@@ -19,10 +19,10 @@ void ft_init_conf(t_conf *conf)
 	conf->maps = NULL;
 	conf->hero.path1 = "./sprites/link_p1.xpm";
 	conf->hero.path2 = "./sprites/link_p2.xpm";
-	conf->badguy.path1 = "./sprites/link_p1.xpm";
+	conf->badguy.path1 = "./sprites/moblin/front1.xpm";
 	conf->badguy.path2 = "./sprites/link_p2.xpm";
 	conf->badguy.move = NULL;
-	conf->items1.path = "./sprites/items.xpm";
+	conf->items1.path = "./sprites/item.xpm";
 	conf->wall = "./sprites/wall.xpm";
 	conf->grass = "./sprites/grass.xpm";
 }
