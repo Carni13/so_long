@@ -20,9 +20,14 @@ typedef struct s_hero
 	int j;
 	int h;
 	int w;
+	int pi;
+	int pj;
 	void *wait[6];
 	void *left[6];
 	void *right[6];
+	void *rwait[6];
+	int p;
+	int count;
 	int items;
 	int pv;
 	int state;

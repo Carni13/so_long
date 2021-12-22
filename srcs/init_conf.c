@@ -10,6 +10,13 @@ void ft_hero_sprites(t_conf *conf, void *(*f)(void *, char *, int *,int *))
 	conf->hero.wait[3] = f(conf->mlx, "./sprites/wait4.xpm", &(conf->hero.w), &(conf->hero.h));
 	conf->hero.wait[4] = f(conf->mlx, "./sprites/wait5.xpm", &(conf->hero.w), &(conf->hero.h));
 	conf->hero.wait[5] = f(conf->mlx, "./sprites/wait6.xpm", &(conf->hero.w), &(conf->hero.h));
+
+	conf->hero.rwait[0] = f(conf->mlx, "./sprites/rwait1.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->hero.rwait[1] = f(conf->mlx, "./sprites/rwait2.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->hero.rwait[2] = f(conf->mlx, "./sprites/rwait3.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->hero.rwait[3] = f(conf->mlx, "./sprites/rwait4.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->hero.rwait[4] = f(conf->mlx, "./sprites/rwait5.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->hero.rwait[5] = f(conf->mlx, "./sprites/rwait6.xpm", &(conf->hero.w), &(conf->hero.h));
 	//
 	conf->hero.right[0] = f(conf->mlx, "./sprites/walk1.xpm", &(conf->hero.w), &(conf->hero.h));
 	conf->hero.right[1] = f(conf->mlx, "./sprites/walk2.xpm", &(conf->hero.w), &(conf->hero.h));

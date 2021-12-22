@@ -22,7 +22,7 @@ void ft_print_maps(t_conf *conf)
 			if(conf->maps[j][i]== '1')
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->iwall, i_size, j_size);
 			else
-				mlx_put_image_to_window(conf->mlx, conf->win, conf->igrass[(clock()%4)], i_size, j_size);
+				mlx_put_image_to_window(conf->mlx, conf->win, conf->igrass[3], i_size, j_size);
 			i_size += SIZE;
 			i++;
 		}
@@ -50,8 +50,10 @@ void ft_print_game(t_conf *conf)
 			if(conf->maps[j][i]== 'p')
 			{
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.wait[0], i_size, j_size);
-				conf->hero.i = i * SIZE;
-				conf->hero.j = j * SIZE;
+				conf->hero.pi = i * SIZE;
+				conf->hero.pj = j * SIZE;
+				conf->hero.i = i;
+				conf->hero.j = j;
 			}
 			if (conf->maps[j][i] == 'i')
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->items1.sprites.img, i_size, j_size);
@@ -75,6 +77,7 @@ void ft_init_window(t_conf *conf)
 	lwin = SIZE * conf->wsize.x;
 	hwin = SIZE * conf->wsize.y;
 	printf("hwin = %d et lwin = %d\n",hwin,lwin);
+	conf->hero.p = RIGHT;
 	conf->win = mlx_new_window(conf->mlx, lwin, hwin, "so_long");
 	ft_print_maps(conf);
 	ft_print_game(conf);

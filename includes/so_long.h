@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:45 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/22 09:40:40 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/22 16:35:42 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define LEFT 2
 # define RIGHT 3
 # define SIZE 22
+# define SPEED 10000
 
 int so_long(int i);
 void ft_init_struct(t_conf *conf);
@@ -36,5 +37,9 @@ void ft_init_window(t_conf *conf);
 void ft_print_maps(t_conf *conf);
 void ft_print_game(t_conf *conf);
 void ft_init_conf(t_conf *conf);
-
+void ft_walkright(t_conf *conf);
+void ft_walkup(t_conf *conf);
+void ft_walkdown(t_conf *conf);
+void ft_walkleft(t_conf *conf);
+int ft_hero_coll(t_conf *conf);
 #endif 

@@ -1,6 +1,8 @@
 SRC = srcs/so_long.c \
 		srcs/ft_parsing_maps.c\
 		srcs/window.c\
+		srcs/ft_move.c\
+		srcs/ft_collision.c\
 		srcs/init_conf.c
 MLX = ./mlx
 IFLAGS = -I includes/
