@@ -47,13 +47,47 @@ void ft_maps_sprites(t_conf *conf, void *(*f)(void *, char *, int *,int *))
 	conf->exit = f(conf->mlx, "./sprites/exit.xpm", &(conf->gw), &(conf->gh));
 	printf("chargement des sprites maps ok \n");
 }
+void ft_skull_sprites(t_conf *conf, void *(*f)(void *, char *, int *,int *))
+{
+	conf->skull.wait[0] = f(conf->mlx, "./sprites/wait1.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.wait[1] = f(conf->mlx, "./sprites/wait2.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.wait[2] = f(conf->mlx, "./sprites/wait3.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.wait[3] = f(conf->mlx, "./sprites/wait4.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.wait[4] = f(conf->mlx, "./sprites/wait5.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.wait[5] = f(conf->mlx, "./sprites/wait6.xpm", &(conf->hero.w), &(conf->hero.h));
+
+	conf->skull.rwait[0] = f(conf->mlx, "./sprites/rwait1.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.rwait[1] = f(conf->mlx, "./sprites/rwait2.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.rwait[2] = f(conf->mlx, "./sprites/rwait3.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.rwait[3] = f(conf->mlx, "./sprites/rwait4.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.rwait[4] = f(conf->mlx, "./sprites/rwait5.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.rwait[5] = f(conf->mlx, "./sprites/rwait6.xpm", &(conf->hero.w), &(conf->hero.h));
+	//
+	conf->skull.right[0] = f(conf->mlx, "./sprites/walk1.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.right[1] = f(conf->mlx, "./sprites/walk2.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.right[2] = f(conf->mlx, "./sprites/walk3.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.right[3] = f(conf->mlx, "./sprites/walk4.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.right[4] = f(conf->mlx, "./sprites/walk5.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.right[5] = f(conf->mlx, "./sprites/walk6.xpm", &(conf->hero.w), &(conf->hero.h));
+	
+	conf->skull.left[0] = f(conf->mlx, "./sprites/rwalk1.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.left[1] = f(conf->mlx, "./sprites/rwalk2.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.left[2] = f(conf->mlx, "./sprites/rwalk3.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.left[3] = f(conf->mlx, "./sprites/rwalk4.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.left[4] = f(conf->mlx, "./sprites/rwalk5.xpm", &(conf->hero.w), &(conf->hero.h));
+	conf->skull.left[5] = f(conf->mlx, "./sprites/rwalk6.xpm", &(conf->hero.w), &(conf->hero.h));
+	printf("chargement des sprites skull ok \n");
+}
 
 void ft_init_conf(t_conf *conf)
 {
 	conf->maps = NULL;
 	ft_hero_sprites(conf, &mlx_xpm_file_to_image);
 	ft_maps_sprites(conf, &mlx_xpm_file_to_image);
+	ft_skull_sprites(conf, &mlx_xpm_file_to_image);
 	conf->timer = 0;
 	conf->second = 0;
 	conf->hero.items = 0;
+	conf->skull.move = RIGHT;
+	conf->skull.count = 0;
 }

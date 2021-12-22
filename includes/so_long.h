@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:45 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/22 16:35:42 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/22 18:50:47 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,10 @@ void ft_walkup(t_conf *conf);
 void ft_walkdown(t_conf *conf);
 void ft_walkleft(t_conf *conf);
 int ft_hero_coll(t_conf *conf);
+int ft_skull_coll(t_conf *conf);
+void ft_walkright_skull(t_conf *conf);
+void ft_walkup_skull(t_conf *conf);
+void ft_walkdown_skull(t_conf *conf);
+void ft_walkleft_skull(t_conf *conf);
+void ft_ai_skull(t_conf *conf);
 #endif 

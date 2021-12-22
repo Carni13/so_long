@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:23 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/22 17:17:32 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/22 19:18:17 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void ft_wait(t_conf *conf)
 			if (conf->maps[j][i] == 'i')
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->items1.sprites.img, i_size, j_size);
 			if (conf->maps[j][i] == 'b')
-				mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.wait[conf->second], i_size, j_size);
+				mlx_put_image_to_window(conf->mlx, conf->win, conf->skull.wait[conf->second], i_size, j_size);
 			i_size += SIZE;
 			i++;
 		}
@@ -106,7 +106,6 @@ int ft_game(t_conf *conf)
 	f_walk[DOWN] = ft_walkdown;
 	f_walk[LEFT] = ft_walkleft;
 	f_walk[RIGHT] = ft_walkright;
-
 	mlx_hook(conf->win, 2, 1L<<0, &ft_hooking, conf);
 	usleep(SPEED/6);
 	conf->second++;
@@ -115,9 +114,9 @@ int ft_game(t_conf *conf)
 		conf->timer++;
 		conf->second = 0;
 	}
+	ft_ai_skull(conf);
 	if (conf->hero.state == MOVE)
 	{
-		printf("ft_hero_coll = %d\n",ft_hero_coll(conf));
 		if(ft_hero_coll(conf) == -1)
 		{
 			conf->hero.state = WAIT;

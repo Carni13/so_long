@@ -34,15 +34,25 @@ typedef struct s_hero
 	int move;
 } t_hero;
 
-typedef struct s_badguy
+typedef struct s_skull
 {
-	t_img sprite1;
-	t_img sprite;
-	char *path1;
-	char *path2;
-	char *move;
-	t_coord position;
-} t_badguy;
+	int i;
+	int j;
+	int h;
+	int w;
+	int pi;
+	int pj;
+	void *wait[6];
+	void *left[6];
+	void *right[6];
+	void *rwait[6];
+	int p;
+	int count;
+	int items;
+	int pv;
+	int state;
+	int move;
+} t_skull;
 
 typedef struct s_exit
 {
@@ -60,7 +70,7 @@ typedef struct s_conf
 	char **maps;
 	t_coord wsize;
 	t_hero hero;
-	t_badguy badguy;
+	t_skull skull;
 	t_items items1;
 	void *exit;
 	void *igrass[4];

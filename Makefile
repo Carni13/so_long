@@ -3,7 +3,10 @@ SRC = srcs/so_long.c \
 		srcs/window.c\
 		srcs/ft_move.c\
 		srcs/ft_collision.c\
-		srcs/init_conf.c
+		srcs/init_conf.c\
+		srcs/ai_skull.c\
+		srcs/ft_collision_skull.c\
+		srcs/ft_move_skull.c
 MLX = ./mlx
 IFLAGS = -I includes/
 CFLAGS = -Wall -Wextra -Werror
