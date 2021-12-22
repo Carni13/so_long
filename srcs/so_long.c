@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:23 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/22 16:44:01 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/22 17:17:32 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,11 @@ int ft_game(t_conf *conf)
 		}
 		f_walk[conf->hero.move](conf);
 		return(0);
+	}
+	if(conf->hero.items == 100)
+	{
+		mlx_destroy_window(conf->mlx, conf->win);
+		exit(0);
 	}
 	ft_animate(conf);
 	return(0);

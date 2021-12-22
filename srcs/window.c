@@ -21,6 +21,8 @@ void ft_print_maps(t_conf *conf)
 		{
 			if(conf->maps[j][i]== '1')
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->iwall, i_size, j_size);
+			else if(conf->maps[j][i]== 'E')
+				mlx_put_image_to_window(conf->mlx, conf->win, conf->exit, i_size, j_size);
 			else
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->igrass[3], i_size, j_size);
 			i_size += SIZE;

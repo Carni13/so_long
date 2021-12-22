@@ -44,6 +44,7 @@ void ft_maps_sprites(t_conf *conf, void *(*f)(void *, char *, int *,int *))
 	conf->iwall = f(conf->mlx, "./sprites/wall2.xpm", &(conf->ww), &(conf->wh));
 	conf->items1.sprites.img = f(conf->mlx, "./sprites/key.xpm",
 	 &(conf->items1.sprites.img_widht), &(conf->items1.sprites.img_height));
+	conf->exit = f(conf->mlx, "./sprites/exit.xpm", &(conf->gw), &(conf->gh));
 	printf("chargement des sprites maps ok \n");
 }
 
@@ -54,4 +55,5 @@ void ft_init_conf(t_conf *conf)
 	ft_maps_sprites(conf, &mlx_xpm_file_to_image);
 	conf->timer = 0;
 	conf->second = 0;
+	conf->hero.items = 0;
 }

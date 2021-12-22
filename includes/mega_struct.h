@@ -37,7 +37,7 @@ typedef struct s_hero
 typedef struct s_badguy
 {
 	t_img sprite1;
-	t_img sprite2;
+	t_img sprite;
 	char *path1;
 	char *path2;
 	char *move;
@@ -62,9 +62,7 @@ typedef struct s_conf
 	t_hero hero;
 	t_badguy badguy;
 	t_items items1;
-	t_items items2;
-	t_items items3;
-	t_exit exit;
+	void *exit;
 	void *igrass[4];
 	int gh;
 	int gw;
