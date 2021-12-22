@@ -78,4 +78,5 @@ void ft_init_window(t_conf *conf)
 	conf->win = mlx_new_window(conf->mlx, lwin, hwin, "so_long");
 	ft_print_maps(conf);
 	ft_print_game(conf);
+	conf->hero.state = WAIT;
 }

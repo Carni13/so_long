@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:23 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/22 10:54:55 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/22 12:59:58 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,67 @@ void ft_wait(t_conf *conf)
 
 void ft_walk(t_conf *conf)
 {
-	conf->hero.i = conf->hero.i + 22/6;
-	mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.right[conf->second],conf->hero.i, conf->hero.j);
+	int count;
+
+	count = 0;
+	while (count != 6)
+	{
+		usleep(10000000/6);
+		conf->hero.i = conf->hero.i + 22/6;
+		mlx_clear_window(conf->mlx, conf->win);
+		ft_print_maps(conf);
+		mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.right[count],conf->hero.i, conf->hero.j);
+		printf("%d",count);		
+		count++;
+	}
+	conf->hero.state = WAIT;
+	conf->hero.i += 22;
+	conf->hero.h += 22;
+	conf->maps[conf->hero.j/22][conf->hero.i/22 + 1 ] = 'p';
+	conf->maps[conf->hero.j/22][conf->hero.i/22] = '0';
+	conf->timer++;
 }
 	
 void ft_animate(t_conf *conf)
 {
-	int state;
-
-	state = MOVE;
 	mlx_clear_window(conf->mlx, conf->win);
 	ft_print_maps(conf);
-	if (state == WAIT)
+	if (conf->hero.state == WAIT)
 		ft_wait(conf);
-	if( state == MOVE)
+	if( conf->hero.state == MOVE)
 		ft_walk(conf);
 	//ft_move(conf);
 	//ft_print_game(conf);
+}
+
+int	ft_hooking(int keycode, t_conf *conf)
+{
+	if(keycode == 0)
+	{
+		conf->hero.state = MOVE;
+		conf->hero.state = LEFT;
+	}
+	if(keycode == 1)
+	{
+		conf->hero.state = MOVE;
+		conf->hero.state = DOWN;
+	}
+	if(keycode == 2)
+	{
+		conf->hero.state = MOVE;
+		conf->hero.state = RIGHT;
+	}
+	if(keycode == 13)
+	{
+		conf->hero.state = MOVE;
+		conf->hero.state = UP;
+	}
+	if(keycode == 53)
+	{
+		mlx_destroy_window(conf->mlx, conf->win);
+		exit(0);
+	}
+	return (0);
 }
 
 int ft_game(t_conf *conf)
@@ -77,6 +121,7 @@ int ft_game(t_conf *conf)
 		conf->second = 0;	
 		printf("d = %d\n",conf->timer);
 	}
+	mlx_hook(conf->win, 2, 1L<<0, &ft_hooking, conf);
 	ft_animate(conf);
 	return(0);
 }

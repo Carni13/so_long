@@ -25,6 +25,8 @@ typedef struct s_hero
 	void *right[6];
 	int items;
 	int pv;
+	int state;
+	int move;
 } t_hero;
 
 typedef struct s_badguy
