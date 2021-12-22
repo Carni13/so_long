@@ -20,11 +20,9 @@ typedef struct s_hero
 	int j;
 	int h;
 	int w;
-	void *wait;
-	void *front[10];
-	void *back[10];
-	void *left[10];
-	void *right[10];
+	void *wait[6];
+	void *left[6];
+	void *right[6];
 	int items;
 	int pv;
 } t_hero;
@@ -46,7 +44,6 @@ typedef struct s_exit
 
 typedef struct s_items
 {
-	char *path;
 	t_img sprites;
 	t_coord coord;
 } t_items;
@@ -61,10 +58,12 @@ typedef struct s_conf
 	t_items items2;
 	t_items items3;
 	t_exit exit;
-	char *wall;
-	t_img iwall;
-	char *grass;
-	t_img igrass;
+	void *igrass[4];
+	int gh;
+	int gw;
+	void *iwall;
+	int wh;
+	int ww;
 	void *mlx;
 	void *win;
 	int timer;

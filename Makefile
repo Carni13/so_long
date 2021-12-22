@@ -1,6 +1,7 @@
 SRC = srcs/so_long.c \
 		srcs/ft_parsing_maps.c\
-		srcs/window.c
+		srcs/window.c\
+		srcs/init_conf.c
 MLX = ./mlx
 IFLAGS = -I includes/
 CFLAGS = -Wall -Wextra -Werror
