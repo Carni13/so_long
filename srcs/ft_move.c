@@ -17,8 +17,8 @@ void ft_move_other(t_conf *conf)
 		{
 			if (conf->maps[j][i] == 'i')
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->items1.sprites.img, i_size, j_size);
-			if (conf->maps[j][i] == 'b')
-				mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.wait[conf->second], i_size, j_size);
+			//if (conf->maps[j][i] == 'b')
+				//mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.wait[conf->second], i_size, j_size);
 			i_size += SIZE;
 			i++;
 		}
@@ -31,10 +31,10 @@ void ft_move_other(t_conf *conf)
 
 void ft_walkright(t_conf *conf)
 {
-	printf("right\n");
+	//printf("right\n");
 	conf->hero.pi += SIZE/6;
-	mlx_clear_window(conf->mlx, conf->win);
-	ft_print_maps(conf);
+	//mlx_clear_window(conf->mlx, conf->win);
+	//ft_print_maps(conf);
 	//ft_move_other(conf);
 	mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.right[conf->hero.count],conf->hero.pi, conf->hero.pj);
 	conf->hero.count++;
@@ -52,10 +52,10 @@ void ft_walkright(t_conf *conf)
 
 void ft_walkleft(t_conf *conf)
 {
-	printf("left\n");
+	//printf("left\n");
 	conf->hero.pi -= SIZE/6;
-	mlx_clear_window(conf->mlx, conf->win);
-	ft_print_maps(conf);
+	//mlx_clear_window(conf->mlx, conf->win);
+	//ft_print_maps(conf);
 	//ft_move_other(conf);
 	mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.left[conf->hero.count],conf->hero.pi, conf->hero.pj);
 	conf->hero.count++;
@@ -71,10 +71,10 @@ void ft_walkleft(t_conf *conf)
 }
 void ft_walkup(t_conf *conf)
 {
-	printf("left\n");
+	//printf("left\n");
 	conf->hero.pj -= SIZE/6;
-	mlx_clear_window(conf->mlx, conf->win);
-	ft_print_maps(conf);
+	//mlx_clear_window(conf->mlx, conf->win);
+	//ft_print_maps(conf);
 	//ft_move_other(conf);
 	if (conf->hero.p == RIGHT)
 		mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.right[conf->hero.count],conf->hero.pi, conf->hero.pj);
@@ -94,10 +94,10 @@ void ft_walkup(t_conf *conf)
 
 void ft_walkdown(t_conf *conf)
 {
-		printf("left\n");
+	//printf("left\n");
 	conf->hero.pj += SIZE/6;
-	mlx_clear_window(conf->mlx, conf->win);
-	ft_print_maps(conf);
+	//mlx_clear_window(conf->mlx, conf->win);
+	//ft_print_maps(conf);
 	//ft_move_other(conf);
 	if (conf->hero.p == RIGHT)
 		mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.right[conf->hero.count],conf->hero.pi, conf->hero.pj);

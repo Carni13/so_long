@@ -29,6 +29,7 @@
 # define RIGHT 3
 # define SIZE 22
 # define SPEED 10000
+# define DEATH 666
 
 int so_long(int i);
 void ft_init_struct(t_conf *conf);
@@ -48,4 +49,6 @@ void ft_walkup_skull(t_conf *conf);
 void ft_walkdown_skull(t_conf *conf);
 void ft_walkleft_skull(t_conf *conf);
 void ft_ai_skull(t_conf *conf);
+void ft_death(t_conf *conf);
+
 #endif 

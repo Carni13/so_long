@@ -27,6 +27,8 @@ void ft_print_maps(t_conf *conf)
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->igrass[3], i_size, j_size);
 			if (conf->maps[j][i]== 'i')
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->items1.sprites.img, i_size, j_size);
+			if (conf->maps[j][i]== 'M')
+				mlx_put_image_to_window(conf->mlx, conf->win, conf->imenu, i_size, j_size);
 			i_size += SIZE;
 			i++;
 		}
@@ -58,6 +60,8 @@ void ft_print_game(t_conf *conf)
 				conf->hero.pj = j * SIZE;
 				conf->hero.i = i;
 				conf->hero.j = j;
+				conf->hero.li = i;
+				conf->hero.lj = j;
 			}	
 			if (conf->maps[j][i] == 'b')
 			{

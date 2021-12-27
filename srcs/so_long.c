@@ -39,8 +39,8 @@ void ft_wait(t_conf *conf)
 			}
 			if (conf->maps[j][i] == 'i')
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->items1.sprites.img, i_size, j_size);
-			if (conf->maps[j][i] == 'b')
-				mlx_put_image_to_window(conf->mlx, conf->win, conf->skull.wait[conf->second], i_size, j_size);
+			//if (conf->maps[j][i] == 'b')
+				//mlx_put_image_to_window(conf->mlx, conf->win, conf->skull.wait[conf->second], i_size, j_size);
 			i_size += SIZE;
 			i++;
 		}
@@ -51,41 +51,51 @@ void ft_wait(t_conf *conf)
 	}
 }
 
+void ft_print_score(t_conf *conf)
+{
+	mlx_string_put(conf->mlx, conf->win, (SIZE), (SIZE/2), 0xFFFFFFFF, "items =");
+	mlx_string_put(conf->mlx, conf->win, (SIZE * 4), (SIZE/2), 0xFFFFFFFF, ft_itoa(conf->hero.items/6));
+	mlx_string_put(conf->mlx, conf->win, (SIZE * 5), (SIZE/2), 0xFFFFFFFF, "timers =");
+	mlx_string_put(conf->mlx, conf->win, (SIZE * 8), (SIZE/2), 0xFFFFFFFF, ft_itoa(conf->rtimer));
+	mlx_string_put(conf->mlx, conf->win, (SIZE * 11), (SIZE/2), 0xFFFFFFFF, "pv =");
+	mlx_string_put(conf->mlx, conf->win, (SIZE * 14), (SIZE/2), 0xFFFFFFFF, ft_itoa(conf->hero.pv));
+}
+
 	
 void ft_animate(t_conf *conf)
 {
-	mlx_clear_window(conf->mlx, conf->win);
-	if (conf->hero.state == WAIT)
-		ft_print_maps(conf);
+	//mlx_clear_window(conf->mlx, conf->win);
+	//if (conf->hero.state == WAIT)
+		//ft_print_maps(conf);
 	ft_wait(conf);
 }
 
 int	ft_hooking(int keycode, t_conf *conf)
 {
-	printf("keycode = %d\n",keycode);
+	//printf("keycode = %d\n",keycode);
 	if(conf->hero.state == MOVE)
 		return (0);
-	if(keycode == 0)
+	if(keycode == 0 || keycode == 123)
 	{
 		conf->hero.state = MOVE;
 		conf->hero.move = LEFT;
 		conf->hero.count = 0;
 		conf->hero.p = LEFT;
 	}
-	if(keycode == 1)
+	if(keycode == 1 ||keycode == 125)
 	{
 		conf->hero.state = MOVE;
 		conf->hero.move = DOWN;
 		conf->hero.count = 0;
 	}
-	if(keycode == 2)
+	if(keycode == 2 || keycode == 124)
 	{
 		conf->hero.state = MOVE;
 		conf->hero.move = RIGHT;
 		conf->hero.count = 0;
 		conf->hero.p = RIGHT;
 	}
-	if(keycode == 13)
+	if(keycode == 13 || keycode == 126)
 	{
 		conf->hero.state = MOVE;
 		conf->hero.move = UP;
@@ -102,19 +112,37 @@ int	ft_hooking(int keycode, t_conf *conf)
 int ft_game(t_conf *conf)
 {
 	void (*f_walk[4])(t_conf *conf);
+
 	f_walk[UP] = ft_walkup;
 	f_walk[DOWN] = ft_walkdown;
 	f_walk[LEFT] = ft_walkleft;
 	f_walk[RIGHT] = ft_walkright;
+	printf("conf->hero.li = %d et conf->hero.lj = %d\n",conf->hero.li, conf->hero.lj);
+	printf("conf->hero.i = %d et conf->hero.j = %d\n",conf->hero.i, conf->hero.j);
+	if(conf->hero.move == DEATH)
+	{
+		ft_death(conf);
+		return (0);
+	}
 	mlx_hook(conf->win, 2, 1L<<0, &ft_hooking, conf);
-	usleep(SPEED/6);
+	usleep(100000/6);
 	conf->second++;
 	if(conf->second == 6)
 	{
 		conf->timer++;
 		conf->second = 0;
 	}
+	if(conf->timer == 6)
+	{
+		conf->rtimer++;
+		conf->timer = 0;	
+	}
+	mlx_clear_window(conf->mlx, conf->win);
+	ft_print_maps(conf);
+	ft_print_score(conf);
 	ft_ai_skull(conf);
+	if(conf->hero.move == DEATH)
+		return (0);
 	if (conf->hero.state == MOVE)
 	{
 		if(ft_hero_coll(conf) == -1)
@@ -145,6 +173,9 @@ int	main(int ac, char **av)
 	if (!conf.maps)
 		exit(0);	
 	ft_init_window(&conf);
+	conf.gow = ((conf.wsize.x * SIZE)/2) - conf.gow/2;
+	conf.goh = ((conf.wsize.y * SIZE)/2) - conf.goh/2;
+	//printf("gow %d et goh = %d\n",conf.goh,conf.gow);
 	mlx_loop_hook(conf.mlx,game, &conf);
 	mlx_loop(conf.mlx);
 }

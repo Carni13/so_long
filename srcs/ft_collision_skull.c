@@ -2,14 +2,17 @@
 
 int ft_collleft_skull(t_conf *conf)
 {
-	if(conf->maps[conf->skull.j][conf->skull.i - 1] == '1')
+	if(conf->maps[conf->skull.j][conf->skull.i - 1] == '1'
+	||conf->maps[conf->skull.j][conf->skull.i - 1] == 'E')
 	{
-		conf->skull.move = RIGHT;
+		//conf->skull.state = WAIT;
+		conf->skull.move = UP;
 		return (-1);
 	}
 	if(conf->maps[conf->skull.j][conf->skull.i - 1] == 'i')
 	{
-		conf->skull.move = RIGHT;
+		//conf->skull.state = WAIT;
+		conf->skull.move = UP;
 		return (-1);
 	}
 	return (0);
@@ -17,14 +20,17 @@ int ft_collleft_skull(t_conf *conf)
 
 int ft_collright_skull(t_conf *conf)
 {
-	if(conf->maps[conf->skull.j][conf->skull.i + 1] == '1')
+	if(conf->maps[conf->skull.j][conf->skull.i + 1] == '1'
+	||conf->maps[conf->skull.j][conf->skull.i + 1] == 'E')
 	{
-		conf->skull.move = LEFT;
+		//conf->skull.state = WAIT;
+		conf->skull.move = DOWN;
 		return (-1);
 	}
 	if(conf->maps[conf->skull.j][conf->skull.i + 1] == 'i')
 	{
-		conf->skull.move = LEFT;
+		//conf->skull.state = WAIT;
+		conf->skull.move = DOWN;
 		return (-1);
 	}		
 	return (0);
@@ -32,14 +38,18 @@ int ft_collright_skull(t_conf *conf)
 
 int ft_colldown_skull(t_conf *conf)
 {
-	if(conf->maps[conf->skull.j + 1][conf->skull.i] == '1')
+	if(conf->maps[conf->skull.j + 1][conf->skull.i] == '1'
+		|| conf->maps[conf->skull.j + 1][conf->skull.i] == 'E'
+		|| conf->maps[conf->skull.j + 1][conf->skull.i] == 'p')
 	{
-		conf->skull.move = UP;
+		//conf->skull.state = WAIT;
+		conf->skull.move = LEFT;
 		return (-1);
 	}
 	if(conf->maps[conf->skull.j + 1][conf->skull.i] == 'i')
 	{
-		conf->skull.move = UP;
+		//conf->skull.state = WAIT;
+		conf->skull.move = LEFT;
 		return (-1);
 	}
 	return (0);
@@ -47,14 +57,18 @@ int ft_colldown_skull(t_conf *conf)
 
 int ft_collup_skull(t_conf *conf)
 {
-	if(conf->maps[conf->skull.j-1][conf->skull.i] == '1')
+	if(conf->maps[conf->skull.j-1][conf->skull.i] == '1'
+	|| conf->maps[conf->skull.j -1][conf->skull.i] == 'E'
+	|| conf->maps[conf->skull.j + 1][conf->skull.i] == 'p')
 	{
-		conf->skull.move = DOWN;
+		//conf->skull.state = WAIT;
+		conf->skull.move = RIGHT;
 		return (-1);
 	}
 	if(conf->maps[conf->skull.j-1][conf->skull.i] == 'i')
 	{
-		conf->skull.move = DOWN;
+		//conf->skull.state = WAIT;
+		conf->skull.move = RIGHT;
 		return (-1);
 	}
 	return (0);

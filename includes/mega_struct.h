@@ -18,6 +18,8 @@ typedef struct s_hero
 {
 	int i;
 	int j;
+	int li;
+	int lj;
 	int h;
 	int w;
 	int pi;
@@ -26,6 +28,7 @@ typedef struct s_hero
 	void *left[6];
 	void *right[6];
 	void *rwait[6];
+	void *hdeath[5];
 	int p;
 	int count;
 	int items;
@@ -46,10 +49,13 @@ typedef struct s_skull
 	void *left[6];
 	void *right[6];
 	void *rwait[6];
+	void *death[5];
+	void *rdeath[5];
+	int dh;
+	int dw;
 	int p;
 	int count;
-	int items;
-	int pv;
+	int acount;
 	int state;
 	int move;
 } t_skull;
@@ -72,6 +78,9 @@ typedef struct s_conf
 	t_hero hero;
 	t_skull skull;
 	t_items items1;
+	void *gaov;
+	int goh;
+	int gow;
 	void *exit;
 	void *igrass[4];
 	int gh;
@@ -79,10 +88,14 @@ typedef struct s_conf
 	void *iwall;
 	int wh;
 	int ww;
+	void *imenu;
+	int mh;
+	int mw;
 	void *mlx;
 	void *win;
 	int timer;
-	int second;	
+	int second;
+	int rtimer;
 } t_conf;
 
 #endif

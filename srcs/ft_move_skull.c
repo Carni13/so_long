@@ -29,11 +29,12 @@ void ft_move_other_skull(t_conf *conf)
 */
 void ft_walkright_skull(t_conf *conf)
 {
-	printf("right\n");
+	//printf("right\n");
 	conf->skull.pi += SIZE/6;
-	mlx_clear_window(conf->mlx, conf->win);
-	ft_print_maps(conf);
+	//mlx_clear_window(conf->mlx, conf->win);
+	//ft_print_maps(conf);
 //	ft_move_other_skull(conf);
+	conf->skull.p = RIGHT;
 	mlx_put_image_to_window(conf->mlx, conf->win, conf->skull.right[conf->skull.count],conf->skull.pi, conf->skull.pj);
 	conf->skull.count++;
 
@@ -49,11 +50,12 @@ void ft_walkright_skull(t_conf *conf)
 
 void ft_walkleft_skull(t_conf *conf)
 {
-	printf("left\n");
+	//printf("left\n");
 	conf->skull.pi -= SIZE/6;
-	mlx_clear_window(conf->mlx, conf->win);
-	ft_print_maps(conf);
+	//mlx_clear_window(conf->mlx, conf->win);
+	//ft_print_maps(conf);
 	//ft_move_other_skull(conf);
+	conf->skull.p = LEFT;
 	mlx_put_image_to_window(conf->mlx, conf->win, conf->skull.left[conf->skull.count],conf->skull.pi, conf->skull.pj);
 	conf->skull.count++;
 	if (conf->skull.count == 6)
@@ -66,10 +68,10 @@ void ft_walkleft_skull(t_conf *conf)
 }
 void ft_walkup_skull(t_conf *conf)
 {
-	printf("left\n");
+	//printf("left\n");
 	conf->skull.pj -= SIZE/6;
-	mlx_clear_window(conf->mlx, conf->win);
-	ft_print_maps(conf);
+	//mlx_clear_window(conf->mlx, conf->win);
+	//ft_print_maps(conf);
 	//ft_move_other_skull(conf);
 	if (conf->skull.p == RIGHT)
 		mlx_put_image_to_window(conf->mlx, conf->win, conf->skull.right[conf->skull.count],conf->skull.pi, conf->skull.pj);
@@ -88,10 +90,10 @@ void ft_walkup_skull(t_conf *conf)
 
 void ft_walkdown_skull(t_conf *conf)
 {
-	printf("left\n");
+	//printf("left\n");
 	conf->skull.pj += SIZE/6;
-	mlx_clear_window(conf->mlx, conf->win);
-	ft_print_maps(conf);
+	//mlx_clear_window(conf->mlx, conf->win);
+	//ft_print_maps(conf);
 	//ft_move_other(conf);
 	if (conf->skull.p == RIGHT)
 		mlx_put_image_to_window(conf->mlx, conf->win, conf->skull.right[conf->skull.count],conf->skull.pi, conf->skull.pj);
