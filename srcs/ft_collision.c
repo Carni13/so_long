@@ -14,9 +14,9 @@ int ft_collleft(t_conf *conf)
 	}
 	if(conf->maps[conf->hero.j][conf->hero.i - 1] == 'E')
 	{
-		if (conf->hero.items == 18)
+		if (conf->hero.items == (conf->items * 6))
 		{
-			conf->hero.items = 100;
+			conf->hero.items = -100;
 			return (0);
 		}
 		return (-1);		
@@ -38,9 +38,9 @@ int ft_collright(t_conf *conf)
 	}
 	if(conf->maps[conf->hero.j][conf->hero.i + 1] == 'E')
 	{
-		if (conf->hero.items == 18)
+		if (conf->hero.items == (conf->items * 6))
 		{
-			conf->hero.items = 100;
+			conf->hero.items = -100;
 			return (0);
 		}
 		return (-1);		
@@ -62,9 +62,9 @@ int ft_colldown(t_conf *conf)
 	}
 	if(conf->maps[conf->hero.j + 1][conf->hero.i] == 'E')
 	{
-		if (conf->hero.items == 18)
+		if (conf->hero.items == (conf->items * 6))
 		{
-			conf->hero.items = 100;
+			conf->hero.items = -100;
 			return (0);
 		}
 		return (-1);		
@@ -86,9 +86,9 @@ int ft_collup(t_conf *conf)
 	}
 	if(conf->maps[conf->hero.j-1][conf->hero.i] == 'E')
 	{
-		if (conf->hero.items == 18)
+		if (conf->hero.items == (conf->items * 6))
 		{
-			conf->hero.items = 100;
+			conf->hero.items = -100;
 			return (0);
 		}
 		return (-1);		

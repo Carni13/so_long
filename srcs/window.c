@@ -2,7 +2,19 @@
 #include "mega_struct.h"
 #include <mlx.h>
 
-
+void ft_print_image_maps(t_conf *conf, char c, int i_size, int j_size)
+{
+	 if( c == '1')
+		mlx_put_image_to_window(conf->mlx, conf->win, conf->iwall, i_size, j_size);
+	else if(c == 'E')
+		mlx_put_image_to_window(conf->mlx, conf->win, conf->exit, i_size, j_size);
+	else
+		mlx_put_image_to_window(conf->mlx, conf->win, conf->igrass[3], i_size, j_size);
+	if ( c == 'I')
+		mlx_put_image_to_window(conf->mlx, conf->win, conf->items1.sprites.img, i_size, j_size);
+	if ( c == 'M')
+		mlx_put_image_to_window(conf->mlx, conf->win, conf->imenu, i_size, j_size);
+}
 
 void ft_print_maps(t_conf *conf)
 {
@@ -19,16 +31,7 @@ void ft_print_maps(t_conf *conf)
 	{
 		while(conf->wsize.x > i)
 		{
-			if(conf->maps[j][i]== '1')
-				mlx_put_image_to_window(conf->mlx, conf->win, conf->iwall, i_size, j_size);
-			else if(conf->maps[j][i]== 'E')
-				mlx_put_image_to_window(conf->mlx, conf->win, conf->exit, i_size, j_size);
-			else
-				mlx_put_image_to_window(conf->mlx, conf->win, conf->igrass[3], i_size, j_size);
-			if (conf->maps[j][i]== 'I')
-				mlx_put_image_to_window(conf->mlx, conf->win, conf->items1.sprites.img, i_size, j_size);
-			if (conf->maps[j][i]== 'M')
-				mlx_put_image_to_window(conf->mlx, conf->win, conf->imenu, i_size, j_size);
+			ft_print_image_maps(conf,conf->maps[j][i], i_size, j_size);
 			i_size += SIZE;
 			i++;
 		}

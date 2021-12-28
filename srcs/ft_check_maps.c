@@ -1,108 +1,104 @@
 #include "so_long.h"
 
-void ft_check_size(t_conf *conf)
+void	ft_check_size(t_conf *conf)
 {
-	int i;
-	int j;
-	int size;
+	int	i;
+	int	j;
+	int	size;
 
 	i = 0;
 	j = 0;
 	size = 0;
-	while( conf->wsize.y > j)
+	while (conf->wsize.y > j)
 	{
 		size = ft_strlen(conf->maps[j]);
-		if(size != conf->wsize.x)
+		if (size != conf->wsize.x)
 			ft_error("no valide maps it's not a rectangle", conf);
 		j++;
 	}
 }
 
-void ft_check_wall2(t_conf *conf)
+void	ft_check_wall2(t_conf *conf)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	printf("check_wall2\n");
-	while(conf->wsize.y > j)
+	while (conf->wsize.y > j)
 	{
-		if(conf->maps[j][conf->wsize.x - 1] != '1')
-			ft_error("invalid Wall!",conf);
+		if (conf->maps[j][conf->wsize.x - 1] != '1')
+			ft_error("invalid Wall!", conf);
 		j++;
 	}
-	while(i < conf->wsize.x)
+	while (i < conf->wsize.x)
 	{
-		if(conf->maps[conf->wsize.y - 1][i] != '1')
-			ft_error("invalid Wall!",conf);	
+		if (conf->maps[conf->wsize.y - 1][i] != '1')
+			ft_error("invalid Wall!", conf);	
 		i++;
 	}
 }
 
-void ft_check_wall(t_conf *conf)
+void	ft_check_wall(t_conf *conf)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	while(i < conf->wsize.x)
+	while (i < conf->wsize.x)
 	{
-		if(conf->maps[j][i] != '1')
-			ft_error("invalid Wall!",conf);
+		if (conf->maps[j][i] != '1')
+			ft_error("invalid Wall!", conf);
 		i++;
 	}
 	i = 0;
-	while(conf->wsize.y > j)
+	while (conf->wsize.y > j)
 	{
-		if(conf->maps[j][i] != '1')
-			ft_error("invalid Wall!",conf);
+		if (conf->maps[j][i] != '1')
+			ft_error("invalid Wall!", conf);
 		j++;
 	}
 	ft_check_wall2(conf);
 }
 
-void ft_check_input(t_conf *conf)
+int	ft_check_input(t_conf *conf)
 {
-	int i;
-	int j;
-	int check;
+	int	i;
+	int	j;
+	int	check;
+
 	j = 0;
 	i = 0;
 	check = 0;
-	while(conf->wsize.y > j)
+	while (conf->wsize.y > j)
 	{
-		while(conf->wsize.x > i)
+		while (conf->wsize.x > i)
 		{
 			if(conf->maps[j][i] == 'E')
-			check+=100000;
+				check+=100000;
 			if(conf->maps[j][i] == 'P')
-			check+=1000000;
+				check+=1000000;
 			if(conf->maps[j][i] == 'I')
-			check+=1;
+				check+=1;
 			i++;
 		}
 		i = 0;
 		j++;
 	}
-	printf("check = %d\n",check);
-	if(check >1110000 || check < 1100001)
-		ft_error("invalid input",conf);
+	if (check >1110000 || check < 1100001)
+		ft_error("invalid input", conf);
+	return(check);
 }
 
 void ft_check_maps(t_conf *conf)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	ft_check_size(conf);
 	ft_check_wall(conf);
-	ft_check_input(conf);
+	conf->items = ft_check_input(conf) - 1100000;
+	// check la maps si autre que char autorise
 	ft_create_scoring(conf);
-	while(j < conf->wsize.y)
-	{
-		printf("%s\n",conf->maps[j]);
-		j++;
-	}
 }

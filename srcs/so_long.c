@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:23 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/28 13:14:32 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/28 18:53:54 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,19 @@ void ft_wait(t_conf *conf)
 
 void ft_print_score(t_conf *conf)
 {
+	if (conf->wsize.x < (SIZE * 15))
+	{
+		mlx_string_put(conf->mlx, conf->win, (SIZE * 1), (SIZE/2), 0xFFFFFFFF, ft_itoa(conf->score));
+		return;
+	}
 	mlx_string_put(conf->mlx, conf->win, (SIZE), (SIZE/2), 0xFFFFFFFF, "items =");
 	mlx_string_put(conf->mlx, conf->win, (SIZE * 4), (SIZE/2), 0xFFFFFFFF, ft_itoa(conf->hero.items/6));
 	mlx_string_put(conf->mlx, conf->win, (SIZE * 5), (SIZE/2), 0xFFFFFFFF, "timers =");
 	mlx_string_put(conf->mlx, conf->win, (SIZE * 8), (SIZE/2), 0xFFFFFFFF, ft_itoa(conf->rtimer));
-	mlx_string_put(conf->mlx, conf->win, (SIZE * 11), (SIZE/2), 0xFFFFFFFF, "pv =");
-	mlx_string_put(conf->mlx, conf->win, (SIZE * 14), (SIZE/2), 0xFFFFFFFF, ft_itoa(conf->hero.pv));
+	mlx_string_put(conf->mlx, conf->win, (SIZE * 9), (SIZE/2), 0xFFFFFFFF, "pv =");
+	mlx_string_put(conf->mlx, conf->win, (SIZE * 11), (SIZE/2), 0xFFFFFFFF, ft_itoa(conf->hero.pv));
+	mlx_string_put(conf->mlx, conf->win, (SIZE * 12), (SIZE/2), 0xFFFFFFFF, "score =");
+	mlx_string_put(conf->mlx, conf->win, (SIZE * 15), (SIZE/2), 0xFFFFFFFF, ft_itoa(conf->score));
 }
 
 	
@@ -77,12 +84,14 @@ int	ft_hooking(int keycode, t_conf *conf)
 		conf->hero.move = LEFT;
 		conf->hero.count = 0;
 		conf->hero.p = LEFT;
+		conf->score++;
 	}
 	if(keycode == 1 ||keycode == 125)
 	{
 		conf->hero.state = MOVE;
 		conf->hero.move = DOWN;
 		conf->hero.count = 0;
+		conf->score++;
 	}
 	if(keycode == 2 || keycode == 124)
 	{
@@ -90,12 +99,15 @@ int	ft_hooking(int keycode, t_conf *conf)
 		conf->hero.move = RIGHT;
 		conf->hero.count = 0;
 		conf->hero.p = RIGHT;
+		conf->score++;
 	}
 	if(keycode == 13 || keycode == 126)
 	{
 		conf->hero.state = MOVE;
 		conf->hero.move = UP;
 		conf->hero.count = 0;
+		conf->score++;
+
 	}
 	if(keycode == 53)
 	{
@@ -147,7 +159,7 @@ int ft_game(t_conf *conf)
 		f_walk[conf->hero.move](conf);
 		return(0);
 	}
-	if(conf->hero.items == 100)
+	if(conf->hero.items == -100)
 	{
 		mlx_destroy_window(conf->mlx, conf->win);
 		exit(0);

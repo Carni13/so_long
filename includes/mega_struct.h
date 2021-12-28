@@ -96,6 +96,8 @@ typedef struct s_conf
 	int timer;
 	int second;
 	int rtimer;
+	int items;
+	int score;
 } t_conf;
 
 #endif

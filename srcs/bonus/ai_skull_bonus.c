@@ -46,7 +46,7 @@ void ft_death(t_conf *conf)
 	mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.hdeath[conf->skull.count], conf->hero.pi, conf->hero.pj);
 	if(conf->hero.pv == 0)
 		mlx_put_image_to_window(conf->mlx, conf->win, conf->gaov, conf->gow, conf->goh);
-	if(conf->skull.count == 4 && conf->hero.pv == 0)
+	if(conf->skull.count == 4 && conf->hero.pv <= 0)
 	{
 		sleep(3);
 		mlx_clear_window(conf->mlx,conf->win);

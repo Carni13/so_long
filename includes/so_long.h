@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:45 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/28 13:00:25 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/28 17:57:49 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define SIZE 22
 # define SPEED 10000
 # define DEATH 666
+# define BONUS 1
 
 int so_long(int i);
 void ft_init_struct(t_conf *conf);
