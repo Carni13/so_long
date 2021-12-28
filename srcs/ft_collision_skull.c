@@ -9,7 +9,7 @@ int ft_collleft_skull(t_conf *conf)
 		conf->skull.move = UP;
 		return (-1);
 	}
-	if(conf->maps[conf->skull.j][conf->skull.i - 1] == 'i')
+	if(conf->maps[conf->skull.j][conf->skull.i - 1] == 'I')
 	{
 		//conf->skull.state = WAIT;
 		conf->skull.move = UP;
@@ -27,7 +27,7 @@ int ft_collright_skull(t_conf *conf)
 		conf->skull.move = DOWN;
 		return (-1);
 	}
-	if(conf->maps[conf->skull.j][conf->skull.i + 1] == 'i')
+	if(conf->maps[conf->skull.j][conf->skull.i + 1] == 'I')
 	{
 		//conf->skull.state = WAIT;
 		conf->skull.move = DOWN;
@@ -40,13 +40,13 @@ int ft_colldown_skull(t_conf *conf)
 {
 	if(conf->maps[conf->skull.j + 1][conf->skull.i] == '1'
 		|| conf->maps[conf->skull.j + 1][conf->skull.i] == 'E'
-		|| conf->maps[conf->skull.j + 1][conf->skull.i] == 'p')
+		|| conf->maps[conf->skull.j + 1][conf->skull.i] == 'P')
 	{
 		//conf->skull.state = WAIT;
 		conf->skull.move = LEFT;
 		return (-1);
 	}
-	if(conf->maps[conf->skull.j + 1][conf->skull.i] == 'i')
+	if(conf->maps[conf->skull.j + 1][conf->skull.i] == 'I')
 	{
 		//conf->skull.state = WAIT;
 		conf->skull.move = LEFT;
@@ -59,13 +59,13 @@ int ft_collup_skull(t_conf *conf)
 {
 	if(conf->maps[conf->skull.j-1][conf->skull.i] == '1'
 	|| conf->maps[conf->skull.j -1][conf->skull.i] == 'E'
-	|| conf->maps[conf->skull.j + 1][conf->skull.i] == 'p')
+	|| conf->maps[conf->skull.j + 1][conf->skull.i] == 'P')
 	{
 		//conf->skull.state = WAIT;
 		conf->skull.move = RIGHT;
 		return (-1);
 	}
-	if(conf->maps[conf->skull.j-1][conf->skull.i] == 'i')
+	if(conf->maps[conf->skull.j-1][conf->skull.i] == 'I')
 	{
 		//conf->skull.state = WAIT;
 		conf->skull.move = RIGHT;

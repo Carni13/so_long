@@ -25,7 +25,7 @@ void ft_print_maps(t_conf *conf)
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->exit, i_size, j_size);
 			else
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->igrass[3], i_size, j_size);
-			if (conf->maps[j][i]== 'i')
+			if (conf->maps[j][i]== 'I')
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->items1.sprites.img, i_size, j_size);
 			if (conf->maps[j][i]== 'M')
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->imenu, i_size, j_size);
@@ -53,7 +53,7 @@ void ft_print_game(t_conf *conf)
 	{
 		while(conf->wsize.x > i)
 		{
-			if(conf->maps[j][i]== 'p')
+			if(conf->maps[j][i]== 'P')
 			{
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.wait[0], i_size, j_size);
 				conf->hero.pi = i * SIZE;

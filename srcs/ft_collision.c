@@ -6,7 +6,7 @@ int ft_collleft(t_conf *conf)
 	if(conf->maps[conf->hero.j][conf->hero.i - 1] == '1'
 	|| conf->maps[conf->hero.j][conf->hero.i - 1] == 'b')
 		return (-1);
-	if(conf->maps[conf->hero.j][conf->hero.i - 1] == 'i')
+	if(conf->maps[conf->hero.j][conf->hero.i - 1] == 'I')
 	{
 		conf->hero.items++;
 		//printf("items = %d\n",conf->hero.items);
@@ -30,7 +30,7 @@ int ft_collright(t_conf *conf)
 	if(conf->maps[conf->hero.j][conf->hero.i + 1] == '1'
 	|| conf->maps[conf->hero.j][conf->hero.i + 1] == 'b')
 		return (-1);
-	if(conf->maps[conf->hero.j][conf->hero.i + 1] == 'i')
+	if(conf->maps[conf->hero.j][conf->hero.i + 1] == 'I')
 	{
 		conf->hero.items++;
 		//printf("items = %d\n",conf->hero.items);
@@ -54,7 +54,7 @@ int ft_colldown(t_conf *conf)
 	if(conf->maps[conf->hero.j + 1][conf->hero.i] == '1'
 	|| conf->maps[conf->hero.j + 1][conf->hero.i] == 'b')
 		return (-1);
-	if(conf->maps[conf->hero.j + 1][conf->hero.i] == 'i')
+	if(conf->maps[conf->hero.j + 1][conf->hero.i] == 'I')
 	{
 		conf->hero.items++;
 		//printf("items = %d\n",conf->hero.items);
@@ -78,7 +78,7 @@ int ft_collup(t_conf *conf)
 	if(conf->maps[conf->hero.j-1][conf->hero.i] == '1'
 	|| conf->maps[conf->hero.j - 1][conf->hero.i] == 'b')
 		return (-1);
-	if(conf->maps[conf->hero.j-1][conf->hero.i] == 'i')
+	if(conf->maps[conf->hero.j-1][conf->hero.i] == 'I')
 	{
 		conf->hero.items++;
 		//printf("items = %d\n",conf->hero.items);

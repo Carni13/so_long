@@ -6,7 +6,9 @@ SRC = srcs/so_long.c \
 		srcs/init_conf.c\
 		srcs/ai_skull.c\
 		srcs/ft_collision_skull.c\
-		srcs/ft_move_skull.c
+		srcs/ft_move_skull.c\
+		srcs/ft_check_maps_utils.c\
+		srcs/ft_check_maps.c
 MLX = ./mlx
 IFLAGS = -I includes/
 CFLAGS = -Wall -Wextra -Werror

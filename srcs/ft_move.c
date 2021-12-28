@@ -15,7 +15,7 @@ void ft_move_other(t_conf *conf)
 	{
 		while(conf->wsize.x > i)
 		{
-			if (conf->maps[j][i] == 'i')
+			if (conf->maps[j][i] == 'I')
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->items1.sprites.img, i_size, j_size);
 			//if (conf->maps[j][i] == 'b')
 				//mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.wait[conf->second], i_size, j_size);
@@ -42,7 +42,7 @@ void ft_walkright(t_conf *conf)
 	if (conf->hero.count == 6)
 	{
 		conf->hero.state = WAIT;
-		conf->maps[conf->hero.j][conf->hero.i + 1 ] = 'p';
+		conf->maps[conf->hero.j][conf->hero.i + 1 ] = 'P';
 		conf->maps[conf->hero.j][conf->hero.i] = '0';
 		conf->hero.i += 1;
 		conf->hero.pi = conf->hero.i * SIZE;
@@ -63,7 +63,7 @@ void ft_walkleft(t_conf *conf)
 	if (conf->hero.count == 6)
 	{
 		conf->hero.state = WAIT;
-		conf->maps[conf->hero.j][conf->hero.i - 1 ] = 'p';
+		conf->maps[conf->hero.j][conf->hero.i - 1 ] = 'P';
 		conf->maps[conf->hero.j][conf->hero.i] = '0';
 		conf->hero.i -= 1;
 		conf->hero.pi = conf->hero.i * SIZE;
@@ -85,7 +85,7 @@ void ft_walkup(t_conf *conf)
 	if (conf->hero.count == 6)
 	{
 		conf->hero.state = WAIT;
-		conf->maps[conf->hero.j - 1][conf->hero.i] = 'p';
+		conf->maps[conf->hero.j - 1][conf->hero.i] = 'P';
 		conf->maps[conf->hero.j][conf->hero.i] = '0';
 		conf->hero.j -= 1;
 		conf->hero.pj = conf->hero.j * SIZE;
@@ -107,7 +107,7 @@ void ft_walkdown(t_conf *conf)
 	if (conf->hero.count == 6)
 	{
 		conf->hero.state = WAIT;
-		conf->maps[conf->hero.j + 1][conf->hero.i] = 'p';
+		conf->maps[conf->hero.j + 1][conf->hero.i] = 'P';
 		conf->maps[conf->hero.j][conf->hero.i] = '0';
 		conf->hero.j += 1;
 		conf->hero.pj = conf->hero.j * SIZE;

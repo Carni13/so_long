@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:23 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/22 19:18:17 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/28 13:14:32 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ void ft_wait(t_conf *conf)
 	{
 		while(conf->wsize.x > i)
 		{
-			if(conf->maps[j][i]== 'p')
+			if(conf->maps[j][i]== 'P')
 			{
 				if (conf->hero.p == LEFT)
 					mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.rwait[conf->second], i_size, j_size);
 				else
 					mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.wait[conf->second], i_size, j_size);
 			}
-			if (conf->maps[j][i] == 'i')
+			if (conf->maps[j][i] == 'I')
 				mlx_put_image_to_window(conf->mlx, conf->win, conf->items1.sprites.img, i_size, j_size);
 			//if (conf->maps[j][i] == 'b')
 				//mlx_put_image_to_window(conf->mlx, conf->win, conf->skull.wait[conf->second], i_size, j_size);
@@ -64,15 +64,11 @@ void ft_print_score(t_conf *conf)
 	
 void ft_animate(t_conf *conf)
 {
-	//mlx_clear_window(conf->mlx, conf->win);
-	//if (conf->hero.state == WAIT)
-		//ft_print_maps(conf);
 	ft_wait(conf);
 }
 
 int	ft_hooking(int keycode, t_conf *conf)
 {
-	//printf("keycode = %d\n",keycode);
 	if(conf->hero.state == MOVE)
 		return (0);
 	if(keycode == 0 || keycode == 123)
@@ -117,8 +113,6 @@ int ft_game(t_conf *conf)
 	f_walk[DOWN] = ft_walkdown;
 	f_walk[LEFT] = ft_walkleft;
 	f_walk[RIGHT] = ft_walkright;
-	printf("conf->hero.li = %d et conf->hero.lj = %d\n",conf->hero.li, conf->hero.lj);
-	printf("conf->hero.i = %d et conf->hero.j = %d\n",conf->hero.i, conf->hero.j);
 	if(conf->hero.move == DEATH)
 	{
 		ft_death(conf);
@@ -170,6 +164,7 @@ int	main(int ac, char **av)
 	conf.mlx = mlx_init();
 	ft_init_conf(&conf);
 	conf.maps = ft_parsing_maps(av[1], &conf);
+	ft_check_maps(&conf);
 	if (!conf.maps)
 		exit(0);	
 	ft_init_window(&conf);
