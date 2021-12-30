@@ -73,7 +73,7 @@ void	ft_maps_sprites(t_conf *conf, void *(*f)(void *, char *, int *, int *))
 			&(conf->items1.sprites.img_height));
 }
 
-void	ft_maps_sprites(t_conf *conf, void *(*f)(void *, char *, int *, int *))
+void	ft_maps_sprites2(t_conf *conf, void *(*f)(void *, char *, int *, int *))
 {
 	conf->exit = f(conf->mlx, "./sprites/exit.xpm",
 			&(conf->gw), &(conf->gh));
@@ -96,12 +96,14 @@ void	ft_maps_sprites(t_conf *conf, void *(*f)(void *, char *, int *, int *))
 void	ft_init_conf(t_conf *conf)
 {
 	conf->maps = NULL;
+	ft_init_sprite(conf);
 	ft_hero_sprites(conf, &mlx_xpm_file_to_image);
 	ft_hero_sprites2(conf, &mlx_xpm_file_to_image);
 	ft_maps_sprites(conf, &mlx_xpm_file_to_image);
 	ft_maps_sprites2(conf, &mlx_xpm_file_to_image);
 	//ft_skull_sprites(conf, &mlx_xpm_file_to_image);
 	//ft_skull_sprites2(conf, &mlx_xpm_file_to_image);
+	ft_check_sprite(conf);
 	conf->timer = 0;
 	conf->second = 0;
 	conf->hero.items = 0;

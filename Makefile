@@ -4,14 +4,19 @@ SRC = srcs/so_long.c \
 		srcs/ft_move.c\
 		srcs/ft_collision.c\
 		srcs/init_conf.c\
-		srcs/ai_skull.c\
-		srcs/ft_collision_skull.c\
-		srcs/ft_move_skull.c\
 		srcs/ft_check_maps_utils.c\
-		srcs/ft_check_maps.c
+		srcs/ft_check_maps.c\
+		srcs/ft_check_sprite.c\
+		srcs/ft_destroy_image.c\
+		srcs/ft_exit.c\
+		srcs/ft_gengine_utils.c\
+		srcs/ft_gengine.c\
+		srcs/ft_init_sprite.c\
+		srcs/ft_hooking.c
+		
 MLX = ./mlx
 IFLAGS = -I includes/
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -D BONUS=1
 CC = gcc
 OBJ = $(SRC:.c=.o)
 HEADER = includes/so_long.h
@@ -28,7 +33,7 @@ $(NAME): $(OBJ) ${HEADER} ${MLX} ${LIBFT}
 		@make -C ${LIBFT}
 		@cp mlx/libmlx.a  ./${LIBMLX}
 		@cp libft/libft.a  ./libft.a
-		$(CC) ${OBJ} -Lmlx -lmlx -Llibft -lft -framework OpenGL -framework AppKit -o $(NAME)
+		$(CC) ${OBJ} -Lmlx -lmlx -Llibft -lft -framework OpenGL -framework AppKit  -o $(NAME)
 
 
 %.o:%.c

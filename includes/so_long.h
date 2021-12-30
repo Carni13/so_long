@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:45 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/28 17:57:49 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/30 12:53:17 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@
 # define LEFT 2
 # define RIGHT 3
 # define SIZE 22
-# define SPEED 10000
+# define SPEED 1000000
 # define DEATH 666
-# define BONUS 1
 
 int so_long(int i);
+void ft_init_sprite(t_conf *conf);
 void ft_init_struct(t_conf *conf);
 char **ft_parsing_maps(char *files, t_conf *conf);
 void ft_init_window(t_conf *conf);
@@ -54,5 +54,14 @@ void ft_death(t_conf *conf);
 void ft_error(char *str, t_conf *conf);
 void ft_check_maps(t_conf *conf);
 void ft_create_scoring(t_conf *conf);
-
+void ft_check_maps(t_conf *conf);
+void ft_create_scoring(t_conf *conf);
+void ft_check_char(t_conf *conf);
+void ft_error(char *str,t_conf *conf);
+void ft_check_sprite(t_conf *conf);
+void	ft_destroy_image(t_conf *conf);
+void	ft_exit(t_conf *conf);
+void 	ft_time(t_conf *conf);
+int		ft_game(t_conf *conf);
+int		ft_hooking(int keycode, t_conf *conf);
 #endif 

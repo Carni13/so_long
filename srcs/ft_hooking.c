@@ -7,7 +7,6 @@ void ft_hookleft(t_conf *conf)
 	conf->hero.move = LEFT;
 	conf->hero.count = 0;
 	conf->hero.p = LEFT;
-	conf->score++;
 }
 
 void ft_hookright(t_conf *conf)
@@ -16,7 +15,6 @@ void ft_hookright(t_conf *conf)
 	conf->hero.move = RIGHT;
 	conf->hero.count = 0;
 	conf->hero.p = RIGHT;
-    conf->score++;
 }
 
 void ft_hookdown(t_conf *conf)
@@ -24,7 +22,6 @@ void ft_hookdown(t_conf *conf)
     conf->hero.state = MOVE;
 	conf->hero.move = DOWN;
 	conf->hero.count = 0;
-	conf->score++;
 }
 
 void ft_hookup(t_conf *conf)
@@ -32,7 +29,6 @@ void ft_hookup(t_conf *conf)
     conf->hero.state = MOVE;
 	conf->hero.move = UP;
 	conf->hero.count = 0;
-	conf->score++;
 }
 
 int	ft_hooking(int keycode, t_conf *conf)

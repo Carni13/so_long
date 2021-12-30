@@ -1,8 +1,8 @@
 #include "so_long.h"
 
-void ft_check_name(char *files)
+void	ft_check_name(char *files)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while(files[i])
@@ -19,7 +19,7 @@ void ft_check_name(char *files)
 		exit(1);
 	}
 }
-char	**ft_parsing_maps(char *files,t_conf *conf)
+char	**ft_parsing_maps(char *files, t_conf *conf)
 {
 	int		fd;
 	int		r;
@@ -27,7 +27,7 @@ char	**ft_parsing_maps(char *files,t_conf *conf)
 	
 	ft_check_name(files);
 	fd = open(files, 0);
-	r = read(fd,buffer,BUFFER_SIZE);
+	r = read(fd,buffer, BUFFER_SIZE);
 	buffer[r] = '\0';
 	conf->maps = ft_split(buffer, '\n');
 	conf->wsize.y = 0;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_check_maps.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jremy <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/30 12:56:26 by jremy             #+#    #+#             */
+/*   Updated: 2021/12/30 12:58:40 by jremy            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	ft_check_size(t_conf *conf)
@@ -34,7 +46,7 @@ void	ft_check_wall2(t_conf *conf)
 	while (i < conf->wsize.x)
 	{
 		if (conf->maps[conf->wsize.y - 1][i] != '1')
-			ft_error("invalid Wall!", conf);	
+			ft_error("invalid Wall!", conf);
 		i++;
 	}
 }
@@ -75,23 +87,23 @@ int	ft_check_input(t_conf *conf)
 	{
 		while (conf->wsize.x > i)
 		{
-			if(conf->maps[j][i] == 'E')
-				check+=100000;
-			if(conf->maps[j][i] == 'P')
-				check+=1000000;
-			if(conf->maps[j][i] == 'I')
-				check+=1;
+			if (conf->maps[j][i] == 'E')
+				check += 100000;
+			if (conf->maps[j][i] == 'P')
+				check += 1000000;
+			if (conf->maps[j][i] == 'I')
+				check += 1;
 			i++;
 		}
 		i = 0;
 		j++;
 	}
-	if (check >1110000 || check < 1100001)
-		ft_error("invalid input", conf);
-	return(check);
+	if (check > 1110000 || check < 1100001)
+		ft_error("invalid conf", conf);
+	return (check);
 }
 
-void ft_check_maps(t_conf *conf)
+void	ft_check_maps(t_conf *conf)
 {
 	int	j;
 

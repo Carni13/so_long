@@ -3,15 +3,20 @@
 void ft_print_image_maps(t_conf *conf, char c, int i_size, int j_size)
 {
 	 if (c == '1')
-		mlx_put_image_to_window(conf->mlx, conf->win, conf->iwall, i_size, j_size);
+		mlx_put_image_to_window(conf->mlx,
+			 conf->win, conf->iwall, i_size, j_size);
 	else if (c == 'E')
-		mlx_put_image_to_window(conf->mlx, conf->win, conf->exit, i_size, j_size);
+		mlx_put_image_to_window(conf->mlx,
+			conf->win, conf->exit, i_size, j_size);
 	else
-		mlx_put_image_to_window(conf->mlx, conf->win, conf->igrass[3], i_size, j_size);
+		mlx_put_image_to_window(conf->mlx,
+			conf->win, conf->igrass[3], i_size, j_size);
 	if ( c == 'I')
-		mlx_put_image_to_window(conf->mlx, conf->win, conf->items1.sprites.img, i_size, j_size);
+		mlx_put_image_to_window(conf->mlx, conf->win,
+			conf->items1.sprites.img, i_size, j_size);
 	if ( c == 'M')
-		mlx_put_image_to_window(conf->mlx, conf->win, conf->imenu, i_size, j_size);
+		mlx_put_image_to_window(conf->mlx, conf->win,
+			conf->imenu, i_size, j_size);
 }
 
 void ft_print_maps(t_conf *conf)
@@ -45,7 +50,7 @@ void ft_print_hero(t_conf *conf)
 	int j;	
 
 	i = 0;
-	j = 0
+	j = 0;
 	while( conf->wsize.y > j)
 	{
 		while(conf->wsize.x > i)
@@ -53,7 +58,7 @@ void ft_print_hero(t_conf *conf)
 			if(conf->maps[j][i]== 'P')
 			{
 				mlx_put_image_to_window(conf->mlx, conf->win,
-				 conf->hero.wait[0], i * size, j * size);
+						conf->hero.wait[0], i * SIZE, j * SIZE);
 				conf->hero.pi = i * SIZE;
 				conf->hero.pj = j * SIZE;
 				conf->hero.i = i;
