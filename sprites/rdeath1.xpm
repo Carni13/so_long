@@ -1,5 +1,5 @@
 /* XPM */
-static char *rdeath1[] = {
+static char *dth1[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 11 1 ",
 "  c None",

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_conf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/30 14:41:47 by jremy             #+#    #+#             */
+/*   Updated: 2021/12/30 17:40:20 by jremy            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	ft_hero_sprites(t_conf *conf, void *(*f)(void *, char *, int *, int *))
@@ -101,15 +113,13 @@ void	ft_init_conf(t_conf *conf)
 	ft_hero_sprites2(conf, &mlx_xpm_file_to_image);
 	ft_maps_sprites(conf, &mlx_xpm_file_to_image);
 	ft_maps_sprites2(conf, &mlx_xpm_file_to_image);
-	//ft_skull_sprites(conf, &mlx_xpm_file_to_image);
-	//ft_skull_sprites2(conf, &mlx_xpm_file_to_image);
 	ft_check_sprite(conf);
 	conf->timer = 0;
 	conf->second = 0;
 	conf->hero.items = 0;
 	conf->skull.move = RIGHT;
 	conf->skull.p = RIGHT;
-	conf->skull.count = 0;
+	conf->skull.cnt = 0;
 	conf->skull.state = WAIT;
 	conf->rtimer = 0;
 	conf->skull.acount = 0;

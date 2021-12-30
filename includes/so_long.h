@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:45 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 12:53:17 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/30 18:51:47 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,40 +28,46 @@
 # define LEFT 2
 # define RIGHT 3
 # define SIZE 22
-# define SPEED 1000000
+# define SPEED 25000
 # define DEATH 666
 
-int so_long(int i);
-void ft_init_sprite(t_conf *conf);
-void ft_init_struct(t_conf *conf);
-char **ft_parsing_maps(char *files, t_conf *conf);
-void ft_init_window(t_conf *conf);
-void ft_print_maps(t_conf *conf);
-void ft_print_game(t_conf *conf);
-void ft_init_conf(t_conf *conf);
-void ft_walkright(t_conf *conf);
-void ft_walkup(t_conf *conf);
-void ft_walkdown(t_conf *conf);
-void ft_walkleft(t_conf *conf);
-int ft_hero_coll(t_conf *conf);
-int ft_skull_coll(t_conf *conf);
-void ft_walkright_skull(t_conf *conf);
-void ft_walkup_skull(t_conf *conf);
-void ft_walkdown_skull(t_conf *conf);
-void ft_walkleft_skull(t_conf *conf);
-void ft_ai_skull(t_conf *conf);
-void ft_death(t_conf *conf);
-void ft_error(char *str, t_conf *conf);
-void ft_check_maps(t_conf *conf);
-void ft_create_scoring(t_conf *conf);
-void ft_check_maps(t_conf *conf);
-void ft_create_scoring(t_conf *conf);
-void ft_check_char(t_conf *conf);
-void ft_error(char *str,t_conf *conf);
-void ft_check_sprite(t_conf *conf);
+int		so_long(int i);
+void	ft_init_sprite(t_conf *conf);
+void	ft_init_struct(t_conf *conf);
+char	**ft_parsing_maps(char *files, t_conf *conf);
+void	ft_init_window(t_conf *conf);
+void	ft_print_maps(t_conf *conf);
+void	ft_print_game(t_conf *conf);
+void	ft_init_conf(t_conf *conf);
+void	ft_walkright(t_conf *conf);
+void	ft_walkup(t_conf *conf);
+void	ft_walkdown(t_conf *conf);
+void	ft_walkleft(t_conf *conf);
+int		ft_hero_coll(t_conf *conf);
+int		ft_skull_coll(t_conf *conf);
+void	ft_walkright_skull(t_conf *conf);
+void	ft_walkup_skull(t_conf *conf);
+void	ft_walkdown_skull(t_conf *conf);
+void	ft_walkleft_skull(t_conf *conf);
+void	ft_ai_skull(t_conf *conf);
+void	ft_death(t_conf *conf);
+void	ft_error(char *str, t_conf *conf);
+void	ft_check_maps(t_conf *conf);
+void	ft_create_scoring(t_conf *conf);
+void	ft_check_maps(t_conf *conf);
+void	ft_create_scoring(t_conf *conf);
+void	ft_check_char(t_conf *conf);
+void	ft_error(char *str, t_conf *conf);
+void	ft_check_sprite(t_conf *conf);
 void	ft_destroy_image(t_conf *conf);
 void	ft_exit(t_conf *conf);
-void 	ft_time(t_conf *conf);
+void	ft_time(t_conf *conf);
 int		ft_game(t_conf *conf);
 int		ft_hooking(int keycode, t_conf *conf);
+void	ft_new_direction(t_conf *conf);
+void	ft_reinit_game(t_conf *conf);
+void	ft_check_move(t_conf *conf);
+void	ft_skull_s(t_conf *conf, void *(*f)(void *, char *, int *, int *));
+int		check_hero(t_conf *conf);
+
 #endif 

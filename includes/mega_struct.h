@@ -50,11 +50,11 @@ typedef struct s_skull
 	void *right[6];
 	void *rwait[6];
 	void *death[5];
-	void *rdeath[5];
+	void *rdth[5];
 	int dh;
 	int dw;
 	int p;
-	int count;
+	int cnt;
 	int acount;
 	int state;
 	int move;

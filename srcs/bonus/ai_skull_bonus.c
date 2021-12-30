@@ -1,127 +1,124 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ai_skull_bonus.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/30 15:16:42 by jremy             #+#    #+#             */
+/*   Updated: 2021/12/30 19:15:29 by jremy            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-void ft_skull_wait(t_conf *conf)
+void	ft_skull_wait(t_conf *conf)
 {
-	int i;
-	int j;
-	int i_size;
-	int j_size;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	i_size = 0;
-	j_size = 0;
-	while( conf->wsize.y > j)
+	while (conf->wsize.y > j)
 	{
-		while(conf->wsize.x > i)
+		while (conf->wsize.x > i)
 		{
-			if(conf->maps[j][i]== 'b')
+			if (conf->maps[j][i] == 'b')
 			{
 				if (conf->skull.p == LEFT)
-					mlx_put_image_to_window(conf->mlx, conf->win, conf->skull.rwait[conf->skull.count], i_size, j_size);
+					mlx_put_image_to_window(conf->mlx, conf->win,
+						conf->skull.rwait[conf->skull.cnt], i * SIZE, j * SIZE);
 				else
-					mlx_put_image_to_window(conf->mlx, conf->win, conf->skull.wait[conf->skull.count], i_size, j_size);
+					mlx_put_image_to_window(conf->mlx, conf->win,
+						conf->skull.wait[conf->skull.cnt], i * SIZE, j * SIZE);
 			}
-			i_size += SIZE;
 			i++;
 		}
 		i = 0;
-		i_size = 0;
-		j_size += SIZE;
 		j++;
 	}
-	conf->skull.count++;
+	conf->skull.cnt++;
 }
 
-void ft_death(t_conf *conf)
+void	ft_death(t_conf *conf)
 {
 	mlx_clear_window(conf->mlx, conf->win);
 	ft_print_maps(conf);
-	conf->skull.count ++;
-	usleep(100000/6);
-	if(conf->skull.p == LEFT)
-		mlx_put_image_to_window(conf->mlx, conf->win, conf->skull.rdeath[conf->skull.count],conf->skull.pi, conf->skull.pj);
+	conf->skull.cnt ++;
+	usleep(100000 / 6);
+	if (conf->skull.p == LEFT)
+		mlx_put_image_to_window(conf->mlx, conf->win,
+			conf->skull.rdth[conf->skull.cnt], conf->skull.pi, conf->skull.pj);
 	else
-		mlx_put_image_to_window(conf->mlx, conf->win, conf->skull.death[conf->skull.count],conf->skull.pi, conf->skull.pj);
-	mlx_put_image_to_window(conf->mlx, conf->win, conf->hero.hdeath[conf->skull.count], conf->hero.pi, conf->hero.pj);
-	if(conf->hero.pv == 0)
-		mlx_put_image_to_window(conf->mlx, conf->win, conf->gaov, conf->gow, conf->goh);
-	if(conf->skull.count == 4 && conf->hero.pv <= 0)
+		mlx_put_image_to_window(conf->mlx, conf->win,
+			conf->skull.death[conf->skull.cnt], conf->skull.pi, conf->skull.pj);
+	mlx_put_image_to_window(conf->mlx, conf->win,
+		conf->hero.hdeath[conf->skull.cnt], conf->hero.pi, conf->hero.pj);
+	if (conf->hero.pv == 0)
+		mlx_put_image_to_window(conf->mlx, conf->win,
+			conf->gaov, conf->gow, conf->goh);
+	if (conf->skull.cnt == 4 && conf->hero.pv <= 0)
 	{
 		sleep(3);
-		mlx_clear_window(conf->mlx,conf->win);
+		mlx_clear_window(conf->mlx, conf->win);
 		mlx_destroy_window(conf->mlx, conf->win);
 		exit(0);
 	}
-	if(conf->skull.count == 4)
-	{
-		conf->skull.count = 0;
-		conf->hero.move = WAIT;
-		conf->maps[conf->hero.j][conf->hero.i] = '0';
-		conf->hero.i = conf->hero.li;
-		conf->hero.j = conf->hero.lj;
-		conf->maps[conf->hero.j][conf->hero.i] = 'P';
-		conf->hero.pj = conf->hero.j * SIZE;
-		conf->hero.pi = conf->hero.i * SIZE;
-	}
+	if (conf->skull.cnt == 4)
+		ft_reinit_game(conf);
 }
-int check_hero(t_conf *conf)
+
+int	check_hero(t_conf *conf)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
+
 	i = conf->skull.i;
 	j = conf->skull.j;
-	if(conf->skull.p == LEFT)
+	if (conf->skull.p == LEFT)
 	{
-		if(conf->maps[j - 1][i - 1] == 'P'
+		if (conf->maps[j - 1][i - 1] == 'P'
 			|| conf->maps[j][i - 1] == 'P'
 			|| conf->maps[j][i] == 'P')
-				return(-1);
+			return (-1);
 	}
-	if(conf->skull.p == RIGHT)
+	if (conf->skull.p == RIGHT)
 	{
-		if( conf->maps[j - 1][i + 1] == 'P'
+		if (conf->maps[j - 1][i + 1] == 'P'
 			|| conf->maps[j][i + 1] == 'P'
 			|| conf->maps[j][i] == 'P')
-			return(-1);
+			return (-1);
 	}
 	return (0);
 }
-void ft_ai_skull(t_conf *conf)
+
+void	ft_ai_skull(t_conf *conf)
 {
-	void (*f_walk[4])(t_conf *conf);
+	void	(*f_walk[4])(t_conf *conf);
+
 	f_walk[UP] = ft_walkup_skull;
 	f_walk[DOWN] = ft_walkdown_skull;
 	f_walk[LEFT] = ft_walkleft_skull;
 	f_walk[RIGHT] = ft_walkright_skull;
-	if(conf->skull.acount == 8)
-	{
-		if(conf->skull.state == WAIT)
-		{
-			conf->skull.move = clock()%4;
-			conf->skull.state = MOVE;
-		}
-		else
-			conf->skull.state = WAIT;
-		conf->skull.acount = 0;
-	}
-	if(ft_skull_coll(conf) == -1)
+	if (conf->skull.acount == 8)
+		ft_new_direction(conf);
+	ft_check_move(conf);
+	if (ft_skull_coll(conf) == -1)
 		return ;
-	if(conf->skull.count == 6)
-	{
-		conf->skull.acount++;
-		conf->skull.count = 0;
-	}
-	if(check_hero(conf)== -1)
-	{
-		conf->hero.move = DEATH;
-		conf->hero.pv--;
-			return;
-	}
+	printf("skull->cnt = %d\n",conf->skull.cnt);
 	if (conf->skull.state == WAIT)
 		ft_skull_wait(conf);
 	else
 		f_walk[conf->skull.move](conf);
+	int i;
+	i = 0;
+	printf("\n");
+	while( i < 6)
+	{
+			printf("%s\n", conf->maps[i]);
+			i++;
+	}
+	printf("\n");
+
 	return ;
 }
-

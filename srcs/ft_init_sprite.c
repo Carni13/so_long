@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_init_sprite.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/30 14:35:50 by jremy             #+#    #+#             */
+/*   Updated: 2021/12/30 17:35:09 by jremy            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
+
 void	ft_hero_isprites(t_conf *conf)
 {
 	conf->hero.wait[0] = NULL;
@@ -45,10 +58,8 @@ void	ft_maps_isprites(t_conf *conf)
 	conf->gaov = NULL;
 }
 
-void ft_init_sprite(t_conf *conf)
+void	ft_init_sprite(t_conf *conf)
 {
 	ft_hero_isprites(conf);
 	ft_maps_isprites(conf);
-	//ft_skull_isprites(conf, &mlx_xpm_file_to_image);
-	//ft_skull_isprites2(conf, &mlx_xpm_file_to_image);
 }

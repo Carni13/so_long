@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_sprite.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jremy <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 13:02:34 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 13:03:25 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/30 17:35:48 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,4 @@ void	ft_check_sprite(t_conf *conf)
 {
 	ft_chero_sprites(conf);
 	ft_cmaps_sprites(conf);
-	//ft_skull_sprites(conf, &mlx_xpm_file_to_image);
-	//ft_skull_sprites2(conf, &mlx_xpm_file_to_image);
 }

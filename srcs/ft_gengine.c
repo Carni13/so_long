@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 13:14:10 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 13:26:10 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/30 17:38:25 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_wait2(t_conf *conf, int i, int j)
 {
-	if (conf->maps[j][i]== 'P')
+	if (conf->maps[j][i] == 'P')
 	{
 		if (conf->hero.p == LEFT)
 			mlx_put_image_to_window(conf->mlx, conf->win,
@@ -26,8 +26,6 @@ void	ft_wait2(t_conf *conf, int i, int j)
 	if (conf->maps[j][i] == 'I')
 		mlx_put_image_to_window(conf->mlx, conf->win,
 			conf->items1.sprites.img, i * SIZE, j * SIZE);
-	//if (conf->maps[j][i] == 'b')
-		//mlx_put_image_to_window(conf->mlx, conf->win, conf->skull.wait[conf->second], i_size, j_size);
 }
 
 void	ft_wait(t_conf *conf)
@@ -88,9 +86,6 @@ void	ft_animate(t_conf *conf)
 	ft_print_maps(conf);
 	if (BONUS == 1)
 		ft_print_score(conf);
-	//ft_ai_skull(conf);
-	//if(conf->hero.move == DEATH)
-		//return (0);
 	if (conf->hero.state == MOVE)
 	{
 		if (ft_hero_coll(conf) == -1)
@@ -108,12 +103,7 @@ void	ft_animate(t_conf *conf)
 
 int	ft_game(t_conf *conf)
 {
-	//if(conf->hero.move == DEATH)
-	//{
-	//	ft_death(conf);
-		//return (0);
-	//}
-	mlx_hook(conf->win, 2, 1L<<0, &ft_hooking, conf);
+	mlx_hook(conf->win, 2, 1L << 0, &ft_hooking, conf);
 	ft_time(conf);
 	mlx_clear_window(conf->mlx, conf->win);
 	ft_animate(conf);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_maps_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jremy <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:59:08 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 13:01:55 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/30 17:35:59 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,9 @@
 
 void	ft_error(char *str, t_conf *conf)
 {
-	int	j;
-
-	j = 0;
-	while (j < conf->wsize.y)
-	{
-		free(conf->maps[j]);
-		j++;
-	}
-	free(conf->maps);
 	perror("error\n");
 	perror(str);
-	exit(1);
+	ft_exit(conf);
 }
 
 void	ft_check_char(t_conf *conf)
@@ -70,7 +61,7 @@ void	ft_create_scoring(t_conf *conf)
 		i++;
 	}
 	score_bar[i] = '\0';
-	new_maps[j] = score_bar;
+	new_maps[0] = score_bar;
 	while (conf->wsize.y > j)
 	{
 		new_maps[j] = conf->maps[j - 1];

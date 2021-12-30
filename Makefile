@@ -13,12 +13,34 @@ SRC = srcs/so_long.c \
 		srcs/ft_gengine.c\
 		srcs/ft_init_sprite.c\
 		srcs/ft_hooking.c
+
+SRC_BONUS = srcs/bonus/ai_skull_bonus.c\
+			srcs/bonus/ai_skull_utils_bonus.c\
+			srcs/bonus/check_maps_bonus.c\
+			srcs/bonus/check_maps_utils_bonus.c\
+			srcs/bonus/check_sprite_bonus.c\
+			srcs/bonus/collision_bonus.c\
+			srcs/bonus/collision_skull_bonus.c\
+			srcs/bonus/destroy_image_bonus.c\
+			srcs/bonus/exit_bonus.c\
+			srcs/bonus/gengine_bonus.c\
+			srcs/bonus/gengine_utils_bonus.c\
+			srcs/bonus/hooking_bonus.c\
+			srcs/bonus/init_conf_bonus.c\
+			srcs/bonus/init_skull_bonus.c\
+			srcs/bonus/init_sprite_bonus.c\
+			srcs/bonus/move_bonus.c\
+			srcs/bonus/move_skull_bonus.c\
+			srcs/bonus/parsing_maps_bonus.c\
+			srcs/bonus/so_long_bonus.c\
+			srcs/bonus/window_bonus.c
 		
 MLX = ./mlx
 IFLAGS = -I includes/
 CFLAGS = -Wall -Wextra -Werror -D BONUS=1
 CC = gcc
 OBJ = $(SRC:.c=.o)
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
 HEADER = includes/so_long.h
 LIBMLX = libmlx.a
 LIBFT = ./libft
@@ -26,7 +48,12 @@ NAME = so_long
 
 all: $(NAME)
 
-bonus: $(NAME)
+bonus: fclean $(OBJ_BONUS) ${HEADER} ${MLX} ${LIBFT}
+		@make -C ${MLX}
+		@make -C ${LIBFT}
+		@cp mlx/libmlx.a  ./${LIBMLX}
+		@cp libft/libft.a  ./libft.a
+		$(CC) ${OBJ_BONUS} -Lmlx -lmlx -Llibft -lft -framework OpenGL -framework AppKit  -o $(NAME) 
 
 $(NAME): $(OBJ) ${HEADER} ${MLX} ${LIBFT}
 		@make -C ${MLX}
@@ -41,11 +68,11 @@ $(NAME): $(OBJ) ${HEADER} ${MLX} ${LIBFT}
 
 clean:
 	rm -f $(OBJ)
+	rm -f $(OBJ_BONUS)	
 	@make clean -C $(MLX)
 
 fclean: clean
 	rm -f $(NAME)
-	@make fclean -C $(MLX)
 
 re: fclean all
 

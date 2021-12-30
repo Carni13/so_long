@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_maps.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jremy <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:56:26 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 12:58:40 by jremy            ###   ########.fr       */
+/*   Updated: 2021/12/30 15:15:18 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,5 @@ void	ft_check_maps(t_conf *conf)
 	ft_check_wall(conf);
 	conf->items = ft_check_input(conf) - 1100000;
 	ft_check_char(conf);
-	// check la maps si autre que char autorise
 	ft_create_scoring(conf);
 }
