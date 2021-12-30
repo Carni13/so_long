@@ -39,6 +39,7 @@ void ft_print_maps(t_conf *conf)
 		j++;
 	}
 }
+
 void ft_print_hero(t_conf *conf)
 {
 	int i;
@@ -65,8 +66,37 @@ void ft_print_hero(t_conf *conf)
 		}
 		i = 0;
 		j++;
+	}
+	
+}
+
+void ft_print_skull(t_conf *conf)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while( conf->wsize.y > j)
+	{
+		while(conf->wsize.x > i)
+		{
+			if (conf->maps[j][i] == 'b')
+			{
+				mlx_put_image_to_window(conf->mlx, conf->win,
+						conf->skull.wait[0], i * SIZE, j * SIZE);
+				conf->skull.pi = i * SIZE;
+				conf->skull.pj = j * SIZE;
+				conf->skull.i = i;
+				conf->skull.j = j;
+			}
+			i++;
+		}
+		i = 0;
+		j++;
 	}	
 }
+
 void ft_init_window(t_conf *conf)
 {
 	int lwin;
@@ -77,5 +107,6 @@ void ft_init_window(t_conf *conf)
 	conf->win = mlx_new_window(conf->mlx, lwin, hwin, "so_long");
 	ft_print_maps(conf);
 	ft_print_hero(conf);
+	ft_print_skull(conf);
 	conf->hero.state = WAIT;
 }

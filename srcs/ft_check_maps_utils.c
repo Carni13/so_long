@@ -16,6 +16,31 @@ void ft_error(char *str,t_conf *conf)
 	exit(0);
 }
 
+void ft_check_char(t_conf *conf)
+{
+	int	i;
+	int	j;
+	int	check;
+
+	j = 0;
+	i = 0;
+	while (conf->wsize.y > j)
+	{
+		while (conf->wsize.x > i)
+		{
+			if(conf->maps[j][i] != 'E' 
+			|| conf->maps[j][i] != 'P'
+			|| conf->maps[j][i] != 'I'
+			|| conf->maps[j][i] != '0'
+			|| conf->maps[j][i] != '1')
+				ft_error("invalid input", conf);
+			i++;
+		}
+		i = 0;
+		j++;
+	}
+}
+
 
 void ft_create_scoring(t_conf *conf)
 {

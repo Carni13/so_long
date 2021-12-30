@@ -1,7 +1,4 @@
 #include "so_long.h"
-#include "mega_struct.h"
-#include <fcntl.h>
-
 
 void ft_check_name(char *files)
 {

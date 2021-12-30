@@ -99,6 +99,7 @@ void ft_check_maps(t_conf *conf)
 	ft_check_size(conf);
 	ft_check_wall(conf);
 	conf->items = ft_check_input(conf) - 1100000;
+	ft_check_char(conf);
 	// check la maps si autre que char autorise
 	ft_create_scoring(conf);
 }
