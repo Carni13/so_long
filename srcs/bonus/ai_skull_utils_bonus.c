@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_new_direction(t_conf *conf)
 {
@@ -18,6 +18,8 @@ void	ft_new_direction(t_conf *conf)
 	{
 		conf->skull.move = clock() % 4;
 		conf->skull.state = MOVE;
+		conf->skull.cnt = 0;
+		ft_move_position(conf);
 	}
 	else
 		conf->skull.state = WAIT;
@@ -26,7 +28,7 @@ void	ft_new_direction(t_conf *conf)
 
 void	ft_reinit_game(t_conf *conf)
 {
-	conf->skull.cnt = 0;
+	conf->hero.pv--;
 	conf->hero.move = WAIT;
 	conf->maps[conf->hero.j][conf->hero.i] = '0';
 	conf->hero.i = conf->hero.li;
@@ -34,6 +36,9 @@ void	ft_reinit_game(t_conf *conf)
 	conf->maps[conf->hero.j][conf->hero.i] = 'P';
 	conf->hero.pj = conf->hero.j * SIZE;
 	conf->hero.pi = conf->hero.i * SIZE;
+	conf->skull.cnt = 0;
+	conf->skull.state = WAIT;
+	conf->skull.acount = 0;
 }
 
 void	ft_check_move(t_conf *conf)
@@ -46,7 +51,8 @@ void	ft_check_move(t_conf *conf)
 	if (check_hero(conf) == -1)
 	{
 		conf->hero.move = DEATH;
-		conf->hero.pv--;
+		conf->skull.cnt = 0;
+		conf->skull.acount = 0;
 		return ;
 	}
 }

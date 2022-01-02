@@ -23,7 +23,7 @@ void	ft_wait2(t_conf *conf, int i, int j)
 			mlx_put_image_to_window(conf->mlx, conf->win,
 				conf->hero.wait[conf->second], i * SIZE, j * SIZE);
 	}
-	if (conf->maps[j][i] == 'I')
+	if (conf->maps[j][i] == 'C')
 		mlx_put_image_to_window(conf->mlx, conf->win,
 			conf->items1.sprites.img, i * SIZE, j * SIZE);
 }
@@ -91,6 +91,7 @@ void	ft_animate(t_conf *conf)
 		if (ft_hero_coll(conf) == -1)
 		{
 			conf->hero.state = WAIT;
+            conf->hero.count = 0;
 			return ;
 		}
 		f_walk[conf->hero.move](conf);

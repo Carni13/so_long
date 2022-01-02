@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	ft_collleft_skull(t_conf *conf)
 {
@@ -18,12 +18,11 @@ int	ft_collleft_skull(t_conf *conf)
 	|| conf->maps[conf->skull.j][conf->skull.i - 1] == 'E'
 	|| conf->maps[conf->skull.j][conf->skull.i - 1] == 'P')
 	{
-		printf("collision\n");
 		conf->skull.move = UP;
 		conf->skull.cnt = 0;
 		return (-1);
 	}
-	if (conf->maps[conf->skull.j][conf->skull.i - 1] == 'I')
+	if (conf->maps[conf->skull.j][conf->skull.i - 1] == 'C')
 	{
 		conf->skull.move = UP;
 		return (-1);
@@ -37,12 +36,11 @@ int	ft_collright_skull(t_conf *conf)
 	|| conf->maps[conf->skull.j][conf->skull.i + 1] == 'E'
 	|| conf->maps[conf->skull.j][conf->skull.i + 1] == 'P')
 	{
-		printf("collision\n");
 		conf->skull.move = DOWN;
 		conf->skull.cnt = 0;
 		return (-1);
 	}
-	if (conf->maps[conf->skull.j][conf->skull.i + 1] == 'I')
+	if (conf->maps[conf->skull.j][conf->skull.i + 1] == 'C')
 	{
 		conf->skull.move = DOWN;
 		return (-1);
@@ -56,12 +54,11 @@ int	ft_colldown_skull(t_conf *conf)
 		|| conf->maps[conf->skull.j + 1][conf->skull.i] == 'E'
 		|| conf->maps[conf->skull.j + 1][conf->skull.i] == 'P')
 	{
-		printf("collision\n");
 		conf->skull.move = LEFT;
 		conf->skull.cnt = 0;
 		return (-1);
 	}
-	if (conf->maps[conf->skull.j + 1][conf->skull.i] == 'I')
+	if (conf->maps[conf->skull.j + 1][conf->skull.i] == 'C')
 	{
 		conf->skull.move = LEFT;
 		return (-1);
@@ -74,13 +71,12 @@ int	ft_collup_skull(t_conf *conf)
 	if (conf->maps[conf->skull.j - 1][conf->skull.i] == '1'
 	|| conf->maps[conf->skull.j -1][conf->skull.i] == 'E'
 	|| conf->maps[conf->skull.j + 1][conf->skull.i] == 'P')
-	{
-		printf("collision\n");
+	{	
 		conf->skull.move = RIGHT;
 		conf->skull.cnt = 0;
 		return (-1);
 	}
-	if (conf->maps[conf->skull.j - 1][conf->skull.i] == 'I')
+	if (conf->maps[conf->skull.j - 1][conf->skull.i] == 'C')
 	{
 		conf->skull.move = RIGHT;
 		return (-1);

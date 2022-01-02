@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_error(char *str, t_conf *conf)
 {
@@ -33,7 +33,7 @@ void	ft_check_char(t_conf *conf)
 		while (conf->wsize.x > i)
 		{
 			if (conf->maps[j][i] != 'E' && conf->maps[j][i] != 'P'
-			&& conf->maps[j][i] != 'I' && conf->maps[j][i] != '0'
+			&& conf->maps[j][i] != 'C' && conf->maps[j][i] != '0'
 			&& conf->maps[j][i] != '1'
 			&& conf->maps[j][i] != 'b')
 				ft_error("invalid input", conf);

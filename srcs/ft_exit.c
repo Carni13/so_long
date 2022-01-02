@@ -27,7 +27,8 @@ void	ft_exit(t_conf *conf)
 		free(conf->maps);
 	}
 	ft_destroy_image(conf);
-	mlx_destroy_window(conf->mlx, conf->win);
+	if (conf->win)
+		mlx_destroy_window(conf->mlx, conf->win);
 	free(conf->mlx);
 	exit(0);
 }

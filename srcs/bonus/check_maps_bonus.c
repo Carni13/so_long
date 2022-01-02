@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_check_size(t_conf *conf)
 {
@@ -91,7 +91,7 @@ int	ft_check_input(t_conf *conf)
 				check += 100000;
 			if (conf->maps[j][i] == 'P')
 				check += 1000000;
-			if (conf->maps[j][i] == 'I')
+			if (conf->maps[j][i] == 'C')
 				check += 1;
 			i++;
 		}

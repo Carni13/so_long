@@ -12,6 +12,13 @@
 
 #include "so_long.h"
 
+int check_mlx_destroy_image(void *mlx, void *img)
+{
+	if(img)
+	 mlx_destroy_image(mlx, img);
+	 return (0);
+}
+
 void	ft_dhero_sprites(t_conf *conf, int (*f)(void *, void *))
 {
 	f(conf->mlx, conf->hero.wait[0]);
@@ -60,6 +67,6 @@ void	ft_dmaps_sprites(t_conf *conf, int (*f)(void *, void *))
 
 void	ft_destroy_image(t_conf *conf)
 {
-	ft_dhero_sprites(conf, &mlx_destroy_image);
-	ft_dmaps_sprites(conf, &mlx_destroy_image);
+	ft_dhero_sprites(conf, &check_mlx_destroy_image);
+	ft_dmaps_sprites(conf, &check_mlx_destroy_image);
 }

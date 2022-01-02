@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_move_other(t_conf *conf)
 {
@@ -27,7 +27,7 @@ void	ft_move_other(t_conf *conf)
 	{
 		while (conf->wsize.x > i)
 		{
-			if (conf->maps[j][i] == 'I')
+			if (conf->maps[j][i] == 'C')
 				mlx_put_image_to_window(conf->mlx, conf->win,
 					conf->items1.sprites.img, i_size, j_size);
 			i_size += SIZE;

@@ -45,6 +45,8 @@ typedef struct s_skull
 	int w;
 	int pi;
 	int pj;
+	int li;
+	int lj;
 	void *wait[6];
 	void *left[6];
 	void *right[6];

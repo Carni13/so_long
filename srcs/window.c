@@ -23,7 +23,7 @@ void	ft_print_image_maps(t_conf *conf, char c, int i_size, int j_size)
 	else
 		mlx_put_image_to_window(conf->mlx,
 			conf->win, conf->igrass[3], i_size, j_size);
-	if (c == 'I')
+	if (c == 'C')
 		mlx_put_image_to_window(conf->mlx, conf->win,
 			conf->items1.sprites.img, i_size, j_size);
 	if (c == 'M')

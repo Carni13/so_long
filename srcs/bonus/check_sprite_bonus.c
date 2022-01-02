@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_check(void *img, t_conf *conf)
 {
@@ -76,7 +76,6 @@ void	ft_cmaps_sprites(t_conf *conf)
 
 void	ft_cskull_sprites(t_conf *conf)
 {
-	printf("--1\n");
 	ft_check(conf->skull.right[0], conf);
 	ft_check(conf->skull.right[1], conf);
 	ft_check(conf->skull.right[2], conf);
@@ -94,9 +93,7 @@ void	ft_cskull_sprites(t_conf *conf)
 	ft_check(conf->skull.death[2], conf);
 	ft_check(conf->skull.death[3], conf);
 	ft_check(conf->skull.death[4], conf);
-				printf("--2 rdth[0] = %p\n",conf->skull.rdth[0]);
 	ft_check(conf->skull.rdth[0], conf);
-					printf("--3\n");
 	ft_check(conf->skull.rdth[1], conf);
 	ft_check(conf->skull.rdth[2], conf);
 	ft_check(conf->skull.rdth[3], conf);

@@ -10,12 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <time.h>
 # include "mega_struct.h"
 # include "../libft/libft.h"
 # include <mlx.h>
@@ -70,6 +71,6 @@ void	ft_check_move(t_conf *conf);
 void	ft_skull_s(t_conf *conf, void *(*f)(void *, char *, int *, int *));
 int		check_hero(t_conf *conf);
 void    ft_move_position(t_conf *conf);
-int     check_mlx_destroy_image(void *mlx, void *img);
+int check_mlx_destroy_image(void *mlx, void *img);
 
 #endif 

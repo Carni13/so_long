@@ -32,7 +32,7 @@ void	ft_check_char(t_conf *conf)
 		{
 			if (conf->maps[j][i] != 'E'
 			&& conf->maps[j][i] != 'P'
-			&& conf->maps[j][i] != 'I'
+			&& conf->maps[j][i] != 'C'
 			&& conf->maps[j][i] != '0'
 			&& conf->maps[j][i] != '1')
 				ft_error("invalid input", conf);

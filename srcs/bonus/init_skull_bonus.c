@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_skull_s3(t_conf *conf, void *(*f)(void *, char *, int *, int *))
 {

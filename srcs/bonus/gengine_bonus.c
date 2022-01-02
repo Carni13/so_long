@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  "so_long.h"
+#include  "so_long_bonus.h"
 
 void	ft_wait2(t_conf *conf, int i, int j)
 {
@@ -23,7 +23,7 @@ void	ft_wait2(t_conf *conf, int i, int j)
 			mlx_put_image_to_window(conf->mlx, conf->win,
 				conf->hero.wait[conf->second], i * SIZE, j * SIZE);
 	}
-	if (conf->maps[j][i] == 'I')
+	if (conf->maps[j][i] == 'C')
 		mlx_put_image_to_window(conf->mlx, conf->win,
 			conf->items1.sprites.img, i * SIZE, j * SIZE);
 }
@@ -61,7 +61,7 @@ void	ft_print_score(t_conf *conf)
 		free(tmp);
 		return ;
 	}
-	mlx_string_put(conf->mlx, conf->win, (SIZE * 8), (SIZE / 2), c, "score =");
+	mlx_string_put(conf->mlx, conf->win, (SIZE * 8), (SIZE / 2), c, "score:");
 	mlx_string_put(conf->mlx, conf->win, (SIZE * 11), (SIZE / 2), c, tmp);
 	free(tmp);
 	tmp = ft_itoa(conf->hero.items / 6);
@@ -69,7 +69,7 @@ void	ft_print_score(t_conf *conf)
 	mlx_string_put(conf->mlx, conf->win,
 		(SIZE * 4), (SIZE / 2), 0xFFFFFFFF, tmp);
 	free(tmp);
-	mlx_string_put(conf->mlx, conf->win, (SIZE * 5), (SIZE / 2), c, "pv:");
+	mlx_string_put(conf->mlx, conf->win, (SIZE * 5), (SIZE / 2), c, "life:");
 	tmp = ft_itoa(conf->hero.pv);
 	mlx_string_put(conf->mlx, conf->win, (SIZE * 7), (SIZE / 2), c, tmp);
 	free(tmp);
@@ -108,7 +108,6 @@ int	ft_game(t_conf *conf)
 {
 	if (conf->hero.move == DEATH)
 	{
-		printf("ft_death\n");
 		ft_death(conf);
 		return (0);
 	}

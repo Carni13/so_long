@@ -53,7 +53,7 @@ bonus: fclean $(OBJ_BONUS) ${HEADER} ${MLX} ${LIBFT}
 		@make -C ${LIBFT}
 		@cp mlx/libmlx.a  ./${LIBMLX}
 		@cp libft/libft.a  ./libft.a
-		$(CC) ${OBJ_BONUS} -Lmlx -lmlx -Llibft -lft -framework OpenGL -framework AppKit  -o $(NAME) 
+		$(CC) ${OBJ_BONUS} -Lmlx -lmlx -Llibft -lft -framework OpenGL -framework AppKit -o $(NAME) 
 
 $(NAME): $(OBJ) ${HEADER} ${MLX} ${LIBFT}
 		@make -C ${MLX}

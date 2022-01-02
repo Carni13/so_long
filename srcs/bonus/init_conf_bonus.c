@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_hero_sprites(t_conf *conf, void *(*f)(void *, char *, int *, int *))
 {
@@ -109,6 +109,8 @@ void	ft_init_conf(t_conf *conf)
 {
 	conf->maps = NULL;
 	ft_init_sprite(conf);
+	conf->win = NULL;
+	//ft_exit(conf);
 	ft_hero_sprites(conf, &mlx_xpm_file_to_image);
 	ft_hero_sprites2(conf, &mlx_xpm_file_to_image);
 	ft_maps_sprites(conf, &mlx_xpm_file_to_image);
@@ -124,7 +126,7 @@ void	ft_init_conf(t_conf *conf)
 	conf->skull.state = WAIT;
 	conf->rtimer = 0;
 	conf->skull.acount = 0;
-	conf->hero.pv = 3;
+	conf->hero.pv = 2;
 	conf->items = 0;
 	conf->score = 0;
 }
