@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 13:11:08 by jremy             #+#    #+#             */
-/*   Updated: 2022/01/03 11:19:48 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 15:49:19 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_error(char *str, t_conf *conf)
 {
-	perror("error\n");
-	perror(str);
+	printf("Error\n");
+	printf("%s\n", str);
 	ft_exit(conf);
 }
 

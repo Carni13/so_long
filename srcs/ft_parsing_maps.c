@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 14:40:55 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 17:39:26 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 14:25:32 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	ft_check_name(char *files)
 	}
 	if (ft_strncmp(files + i, ".ber", 4) != 0)
 	{
-		perror("Incorrect maps name\n");
+		printf("Error\n");
+		printf("Incorrect maps name\n");
 		exit(1);
 	}
 }

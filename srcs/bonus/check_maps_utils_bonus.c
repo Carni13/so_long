@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:59:08 by jremy             #+#    #+#             */
-/*   Updated: 2022/01/03 11:53:28 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 14:40:51 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	ft_check_items(t_conf *conf)
 		i = 0;
 		j++;
 	}
+	if (check < 1)
+		ft_error("No collectible", conf);
 	return (check);
 }
 

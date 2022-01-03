@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:23 by jremy             #+#    #+#             */
-/*   Updated: 2022/01/03 11:24:51 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 15:42:37 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,13 @@ int	main(int ac, char **av)
 	t_conf	conf;
 	int		(*game)(t_conf *conf);
 
+	if (ac < 2)
+	{
+		printf("Error\n");
+		printf("need maps");
+		exit(0);
+	}
 	game = &ft_game;
-	(void)ac;
 	conf.mlx = mlx_init();
 	ft_init_conf(&conf);
 	conf.maps = ft_parsing_maps(av[1], &conf);

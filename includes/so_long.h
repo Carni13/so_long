@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:45 by jremy             #+#    #+#             */
-/*   Updated: 2022/01/03 12:33:12 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 14:44:58 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <time.h>
 # include "mega_struct.h"
 # include "../libft/libft.h"
 # include <mlx.h>
