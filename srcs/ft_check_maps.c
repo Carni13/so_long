@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:56:26 by jremy             #+#    #+#             */
-/*   Updated: 2022/01/03 16:06:45 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 14:31:28 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,10 @@ void	ft_check_input(t_conf *conf)
 	int	i;
 	int	j;
 	int	check;
-	int check2;
 
 	j = 0;
 	i = 0;
 	check = 0;
-	check2 = 0;
 	while (conf->wsize.y > j)
 	{
 		while (conf->wsize.x > i)
@@ -92,13 +90,13 @@ void	ft_check_input(t_conf *conf)
 			if (conf->maps[j][i] == 'E')
 				check += 1;
 			if (conf->maps[j][i] == 'P')
-				check2 += 1;
+				check += 1;
 			i++;
 		}
 		i = 0;
 		j++;
 	}
-	if (check < 1 && check2 < 1)
+	if (check < 2)
 		ft_error("invalid conf", conf);
 }
 

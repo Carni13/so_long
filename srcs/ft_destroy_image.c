@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 13:09:56 by jremy             #+#    #+#             */
-/*   Updated: 2022/01/03 16:05:33 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 14:05:40 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	check_mlx_destroy_image(void *mlx, void *img)
 {
-	static int d = 0;
-	printf("img %p \\ mlx %p\n",img,mlx);
-	d++;
 	if (img && mlx)
 		mlx_destroy_image(mlx, img);
 	return (0);
@@ -52,9 +49,7 @@ void	ft_dhero_sprites(t_conf *conf, int (*f)(void *, void *))
 
 void	ft_dmaps_sprites(t_conf *conf, int (*f)(void *, void *))
 {
-	printf("exit = %p\n", conf->exit);
 	f(conf->mlx, conf->exit);
-	printf("menu\n");
 	f(conf->mlx, conf->imenu);
 	f(conf->mlx, conf->hero.hdeath[0]);
 	f(conf->mlx, conf->hero.hdeath[1]);
