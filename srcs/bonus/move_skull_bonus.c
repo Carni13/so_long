@@ -6,29 +6,28 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 17:21:59 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 19:21:16 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 10:44:36 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void ft_move_position(t_conf *conf)
+void	ft_move_position(t_conf *conf)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	j = 0;	
-	while( conf->wsize.y > j)
+	j = 0;
+	while (conf->wsize.y > j)
 	{
-		while(conf->wsize.x > i)
+		while (conf->wsize.x > i)
 		{
 			if (conf->maps[j][i] == 'b')
 			{
 				conf->skull.i = i;
 				conf->skull.j = j;
 			}
-
 			i++;
 		}
 		i = 0;

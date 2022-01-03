@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 13:14:10 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 17:38:25 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 12:22:53 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	ft_animate(t_conf *conf)
 		if (ft_hero_coll(conf) == -1)
 		{
 			conf->hero.state = WAIT;
-            conf->hero.count = 0;
+			conf->hero.count = 0;
 			return ;
 		}
 		f_walk[conf->hero.move](conf);

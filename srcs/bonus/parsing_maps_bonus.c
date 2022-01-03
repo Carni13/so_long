@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 14:40:55 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 17:41:34 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 11:54:30 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ char	**ft_parsing_maps(char *files, t_conf *conf)
 	r = read(fd, buffer, BUFFER_SIZE);
 	buffer[r] = '\0';
 	conf->maps = ft_split(buffer, '\n');
+	if (!conf->maps)
+		ft_error("malloc error", conf);
 	conf->wsize.y = 0;
 	conf->wsize.x = 0;
 	conf->wsize.x = ft_strlen(conf->maps[conf->wsize.y]);

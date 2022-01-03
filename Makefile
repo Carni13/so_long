@@ -37,7 +37,7 @@ SRC_BONUS = srcs/bonus/ai_skull_bonus.c\
 		
 MLX = ./mlx
 IFLAGS = -I includes/
-CFLAGS = -Wall -Wextra -Werror -D BONUS=1
+CFLAGS = -Wall -Wextra -Werror
 CC = gcc
 OBJ = $(SRC:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
@@ -45,23 +45,25 @@ HEADER = includes/so_long.h
 LIBMLX = libmlx.a
 LIBFT = ./libft
 NAME = so_long
+NAME_BONUS = so_long_bonus
 
 all: $(NAME)
 
-bonus: fclean $(OBJ_BONUS) ${HEADER} ${MLX} ${LIBFT}
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJ_BONUS) ${HEADER} ${MLX} ${LIBFT}
 		@make -C ${MLX}
 		@make -C ${LIBFT}
 		@cp mlx/libmlx.a  ./${LIBMLX}
 		@cp libft/libft.a  ./libft.a
-		$(CC) ${OBJ_BONUS} -Lmlx -lmlx -Llibft -lft -framework OpenGL -framework AppKit -o $(NAME) 
+		$(CC) $(CFLAGS) ${OBJ_BONUS} -Lmlx -lmlx -Llibft -lft -framework OpenGL -framework AppKit -o $(NAME_BONUS) 
 
 $(NAME): $(OBJ) ${HEADER} ${MLX} ${LIBFT}
 		@make -C ${MLX}
 		@make -C ${LIBFT}
 		@cp mlx/libmlx.a  ./${LIBMLX}
 		@cp libft/libft.a  ./libft.a
-		$(CC) ${OBJ} -Lmlx -lmlx -Llibft -lft -framework OpenGL -framework AppKit  -o $(NAME)
-
+		$(CC) $(CFLAGS) ${OBJ} -Lmlx -lmlx -Llibft -lft -framework OpenGL -framework AppKit  -o $(NAME)
 
 %.o:%.c
 	$(CC) $(CFLAGS) $(IFLAGS) -Imlx -c $< -o $@
@@ -70,9 +72,15 @@ clean:
 	rm -f $(OBJ)
 	rm -f $(OBJ_BONUS)	
 	@make clean -C $(MLX)
+	@make clean -C $(LIBFT)
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(NAME_BONUS)
+	rm -f $(LIBMLX)
+	rm -f libft.a
+	@make fclean -C $(LIBFT)
+
 
 re: fclean all
 

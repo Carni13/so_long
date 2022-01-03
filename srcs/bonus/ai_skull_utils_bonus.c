@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:25:21 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 17:40:45 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 11:49:54 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_reinit_game(t_conf *conf)
 {
 	conf->hero.pv--;
 	conf->hero.move = WAIT;
+	conf->hero.state = WAIT;
 	conf->maps[conf->hero.j][conf->hero.i] = '0';
 	conf->hero.i = conf->hero.li;
 	conf->hero.j = conf->hero.lj;

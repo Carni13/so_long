@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*   exit_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 13:11:08 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 13:12:25 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 11:26:37 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int check_mlx_destroy_image(void *mlx, void *img)
+void	ft_error(char *str, t_conf *conf)
 {
-	if(img)
-	 mlx_destroy_image(mlx, img);
-	 return (0);
+	perror("error\n");
+	perror(str);
+	ft_exit(conf);
+}
+
+int	check_mlx_destroy_image(void *mlx, void *img)
+{
+	if (img && mlx)
+		mlx_destroy_image(mlx, img);
+	return (0);
+}
+
+int	ft_quite(t_conf *conf)
+{
+	ft_exit(conf);
+	return (0);
 }
 
 void	ft_exit(t_conf *conf)
@@ -34,8 +47,7 @@ void	ft_exit(t_conf *conf)
 		free(conf->maps);
 	}
 	ft_destroy_image(conf);
-	if(conf->win)
+	if (conf->win)
 		mlx_destroy_window(conf->mlx, conf->win);
-	free(conf->mlx);
 	exit(0);
 }

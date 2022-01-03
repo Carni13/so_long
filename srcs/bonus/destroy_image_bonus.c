@@ -6,12 +6,11 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 13:09:56 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 17:37:53 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 11:51:59 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
-
 
 void	ft_dhero_sprites(t_conf *conf, int (*f)(void *, void *))
 {

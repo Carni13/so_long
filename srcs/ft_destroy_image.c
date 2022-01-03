@@ -6,17 +6,17 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 13:09:56 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 17:35:39 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 11:52:30 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int check_mlx_destroy_image(void *mlx, void *img)
+int	check_mlx_destroy_image(void *mlx, void *img)
 {
-	if(img)
-	 mlx_destroy_image(mlx, img);
-	 return (0);
+	if (img)
+		mlx_destroy_image(mlx, img);
+	return (0);
 }
 
 void	ft_dhero_sprites(t_conf *conf, int (*f)(void *, void *))

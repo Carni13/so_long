@@ -6,13 +6,13 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:16:42 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 19:15:29 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 11:52:54 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void ft_break(t_conf *conf)
+void	ft_break(t_conf *conf)
 {
 	int	i;
 	int	j;
@@ -54,7 +54,7 @@ void	ft_skull_wait(t_conf *conf)
 						conf->skull.rwait[conf->skull.cnt], i * SIZE, j * SIZE);
 				else
 					mlx_put_image_to_window(conf->mlx, conf->win,
-						conf->skull.wait[conf->skull.cnt], i * SIZE, j * SIZE);	
+						conf->skull.wait[conf->skull.cnt], i * SIZE, j * SIZE);
 			}
 			i++;
 		}
@@ -94,6 +94,7 @@ int	check_hero(t_conf *conf)
 {
 	int	i;
 	int	j;
+
 	i = conf->skull.i;
 	j = conf->skull.j;
 	if (conf->skull.p == LEFT)
@@ -116,7 +117,7 @@ int	check_hero(t_conf *conf)
 void	ft_ai_skull(t_conf *conf)
 {
 	void	(*f_walk[4])(t_conf *conf);
-	int i;
+	int		i;
 
 	i = 0;
 	f_walk[UP] = ft_walkup_skull;

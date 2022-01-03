@@ -6,18 +6,11 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:59:08 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 17:35:59 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 12:33:58 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	ft_error(char *str, t_conf *conf)
-{
-	perror("error\n");
-	perror(str);
-	ft_exit(conf);
-}
 
 void	ft_check_char(t_conf *conf)
 {
@@ -54,12 +47,11 @@ void	ft_create_scoring(t_conf *conf)
 	j = 1;
 	score_bar = malloc(sizeof(char) * conf->wsize.x + 1);
 	new_maps = malloc(sizeof(char *) * (conf->wsize.y + 2));
+	if (!score_bar || !new_maps)
+		ft_error("malloc error", conf);
 	conf->wsize.y++;
 	while (conf->wsize.x > i)
-	{
-		score_bar[i] = 'M';
-		i++;
-	}
+		score_bar[i++] = 'M';
 	score_bar[i] = '\0';
 	new_maps[0] = score_bar;
 	while (conf->wsize.y > j)

@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:45 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 18:51:47 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 12:33:12 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <time.h>
 # include "mega_struct.h"
 # include "../libft/libft.h"
 # include <mlx.h>
@@ -30,6 +31,7 @@
 # define SPEED 2500000
 # define DEATH 666
 # define AFTERDEATH -666
+# define BONUS 0
 
 int		so_long(int i);
 void	ft_init_sprite(t_conf *conf);
@@ -57,7 +59,6 @@ void	ft_create_scoring(t_conf *conf);
 void	ft_check_maps(t_conf *conf);
 void	ft_create_scoring(t_conf *conf);
 void	ft_check_char(t_conf *conf);
-void	ft_error(char *str, t_conf *conf);
 void	ft_check_sprite(t_conf *conf);
 void	ft_destroy_image(t_conf *conf);
 void	ft_exit(t_conf *conf);
@@ -69,7 +70,10 @@ void	ft_reinit_game(t_conf *conf);
 void	ft_check_move(t_conf *conf);
 void	ft_skull_s(t_conf *conf, void *(*f)(void *, char *, int *, int *));
 int		check_hero(t_conf *conf);
-void    ft_move_position(t_conf *conf);
-int     check_mlx_destroy_image(void *mlx, void *img);
+void	ft_move_position(t_conf *conf);
+int		check_mlx_destroy_image(void *mlx, void *img);
+void	ft_ecrase_hero(t_conf *conf);
+int		ft_check_items(t_conf *conf);
+int		ft_quite(t_conf *conf);
 
 #endif 

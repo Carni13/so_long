@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:56:26 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 17:25:52 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 10:39:57 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_check_wall(t_conf *conf)
 	ft_check_wall2(conf);
 }
 
-int	ft_check_input(t_conf *conf)
+void	ft_check_input(t_conf *conf)
 {
 	int	i;
 	int	j;
@@ -87,20 +87,17 @@ int	ft_check_input(t_conf *conf)
 	{
 		while (conf->wsize.x > i)
 		{
-			if (conf->maps[j][i] == 'E')
-				check += 100000;
-			if (conf->maps[j][i] == 'P')
-				check += 1000000;
-			if (conf->maps[j][i] == 'C')
+			if (conf->maps[j][i] == 'E' || conf->maps[j][i] == 'P')
+				check += 1;
+			if (conf->maps[j][i] == 'C' || conf->maps[j][i] == 'b')
 				check += 1;
 			i++;
 		}
 		i = 0;
 		j++;
 	}
-	if (check > 1110000 || check < 1100001)
+	if (check < 4)
 		ft_error("invalid conf", conf);
-	return (check);
 }
 
 void	ft_check_maps(t_conf *conf)
@@ -110,7 +107,9 @@ void	ft_check_maps(t_conf *conf)
 	j = 0;
 	ft_check_size(conf);
 	ft_check_wall(conf);
-	conf->items = ft_check_input(conf) - 1100000;
+	ft_check_input(conf);
+	conf->items = ft_check_items(conf);
 	ft_check_char(conf);
 	ft_create_scoring(conf);
+	ft_ecrase_hero(conf);
 }

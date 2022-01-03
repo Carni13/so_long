@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 14:41:47 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 18:07:28 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 11:53:44 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,6 @@ void	ft_init_conf(t_conf *conf)
 {
 	conf->maps = NULL;
 	ft_init_sprite(conf);
-	conf->win = NULL;
-	//ft_exit(conf);
 	ft_hero_sprites(conf, &mlx_xpm_file_to_image);
 	ft_hero_sprites2(conf, &mlx_xpm_file_to_image);
 	ft_maps_sprites(conf, &mlx_xpm_file_to_image);
