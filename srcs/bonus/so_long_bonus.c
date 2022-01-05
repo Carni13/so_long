@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:23 by jremy             #+#    #+#             */
-/*   Updated: 2022/01/05 09:37:14 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/05 09:51:00 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 	{
 		printf("Error\n");
 		printf("need maps\n");
-		exit(0);
+		exit(1);
 	}
 	game = &ft_game;
 	conf.mlx = mlx_init();
