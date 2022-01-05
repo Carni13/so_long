@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:16:42 by jremy             #+#    #+#             */
-/*   Updated: 2022/01/03 11:52:54 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/05 09:21:27 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	ft_death(t_conf *conf)
 	if (conf->skull.cnt == 4 && conf->hero.pv <= 0)
 	{
 		sleep(3);
-		ft_exit(conf);
+		ft_exit(conf, 0);
 	}
 	if (conf->skull.cnt >= 4)
 		ft_reinit_game(conf);
@@ -101,6 +101,8 @@ int	check_hero(t_conf *conf)
 	{
 		if (conf->maps[j - 1][i - 1] == 'P'
 			|| conf->maps[j][i - 1] == 'P'
+			|| conf->maps[j + 1][i] == 'P'
+			|| conf->maps[j - 1][i] == 'P'
 			|| conf->maps[j][i] == 'P')
 			return (-1);
 	}
@@ -108,6 +110,8 @@ int	check_hero(t_conf *conf)
 	{
 		if (conf->maps[j - 1][i + 1] == 'P'
 			|| conf->maps[j][i + 1] == 'P'
+			|| conf->maps[j + 1][i] == 'P'
+			|| conf->maps[j - 1][i] == 'P'
 			|| conf->maps[j][i] == 'P')
 			return (-1);
 	}

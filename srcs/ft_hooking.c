@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 14:31:42 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 17:38:39 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/05 09:17:42 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ int	ft_hooking(int keycode, t_conf *conf)
 	if (keycode == 13 || keycode == 126)
 		f_hook[UP](conf);
 	if (keycode == 53)
-		ft_exit(conf);
+		ft_exit(conf, 0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:52:45 by jremy             #+#    #+#             */
-/*   Updated: 2022/01/03 12:22:53 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/05 09:10:49 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_create_scoring(t_conf *conf);
 void	ft_check_char(t_conf *conf);
 void	ft_check_sprite(t_conf *conf);
 void	ft_destroy_image(t_conf *conf);
-void	ft_exit(t_conf *conf);
+void	ft_exit(t_conf *conf, int output);
 void	ft_time(t_conf *conf);
 int		ft_game(t_conf *conf);
 int		ft_hooking(int keycode, t_conf *conf);

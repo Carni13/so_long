@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 13:02:34 by jremy             #+#    #+#             */
-/*   Updated: 2021/12/30 17:35:48 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/05 09:44:04 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_check(void *img, t_conf *conf)
 {
 	if (img == NULL)
-		ft_exit(conf);
+		ft_error("Sprite Error", conf);
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:56:26 by jremy             #+#    #+#             */
-/*   Updated: 2022/01/03 14:34:50 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/03 15:34:22 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,15 +90,15 @@ void	ft_check_input(t_conf *conf)
 			if (conf->maps[j][i] == 'E')
 				check += 1;
 			if (conf->maps[j][i] == 'b')
-				check += 1;
+				check += 100000;
 			if (conf->maps[j][i] == 'P')
-				check += 1;
+				check += 1000000;
 			i++;
 		}
 		i = 0;
 		j++;
 	}
-	if (check < 3)
+	if (check < 1100001 || check > 1200000)
 		ft_error("invalid conf", conf);
 }
 
@@ -114,5 +114,4 @@ void	ft_check_maps(t_conf *conf)
 	conf->items = ft_check_items(conf);
 	ft_check_char(conf);
 	ft_create_scoring(conf);
-	ft_ecrase_hero(conf);
 }

@@ -6,7 +6,7 @@
 /*   By: jremy <jremy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 13:14:10 by jremy             #+#    #+#             */
-/*   Updated: 2022/01/03 12:22:53 by jremy            ###   ########.fr       */
+/*   Updated: 2022/01/05 09:17:37 by jremy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	ft_animate(t_conf *conf)
 		return ;
 	}
 	if (conf->hero.items < 0)
-		ft_exit(conf);
+		ft_exit(conf, 0);
 	ft_wait(conf);
 }
 

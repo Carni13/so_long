@@ -86,4 +86,4 @@ re: fclean all
 
 rbonus: fclean bonus
 
-.PHONY: all clean fclean rbonus
+.PHONY: all clean fclean rbonus bonus
